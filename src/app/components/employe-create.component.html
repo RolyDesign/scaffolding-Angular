@@ -4,23 +4,26 @@
       <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
     </div>
   </div>
-  <div class="card  py-4">
-    <div class="card-body">
+  <div class="row ">
+    <div class="col-md-6">
       <form [formGroup]="addEmploy" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
         <div class="row">
           <div class="col-md-6">
             <!------------------------ inputs name --------------------------->
             <div>
               <label for="name" class=" form-label">Name</label>
-              <div class=" mb-2">
+              <div>
                 <input id="name" formControlName="name" class="form-control form-control-sm" type="text"
                   placeholder="*Name"
-                  [ngClass]="{'is-invalid': (addEmploy.get('name')?.touched || addEmploy.get('name')?.dirty) && !addEmploy.get('name')?.valid }">
+                  [ngClass]="{'is-invalid': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="addEmploy.get('name')?.errors?.['required']">
+                  <span *ngIf="fm['name'].errors?.['required']">
                     {{validationForms.required}}
                   </span>
-                  <span *ngIf="addEmploy.get('name')?.errors?.['minlength']">
+                  <span *ngIf="fm['name'].errors?.['minlength']">
                     {{validationForms.minLength}}
                   </span>
                 </span>
@@ -29,15 +32,18 @@
             <!------------------------ inputs LastName --------------------------->
             <div>
               <label for="lastName" class="form-label">Last Name</label>
-              <div class=" mb-2">
+              <div>
                 <input id="lastName" formControlName="lastName" class="form-control form-control-sm" type="text"
                   placeholder="*last Name"
-                  [ngClass]="{'is-invalid': (addEmploy.get('lastName')?.touched || addEmploy.get('lastName')?.dirty) && !addEmploy.get('lastName')?.valid }">
+                  [ngClass]="{'is-invalid': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="addEmploy.get('lastName')?.errors?.['required']">
+                  <span *ngIf="fm['lastName'].errors?.['required']">
                     {{validationForms.required}}
                   </span>
-                  <span *ngIf="addEmploy.get('lastName')?.errors?.['minlength']">
+                  <span *ngIf="fm['lastName'].errors?.['minlength']">
                     {{validationForms.minLength}}
                   </span>
                 </span>
@@ -46,15 +52,17 @@
             <!------------------------ inputs LastName --------------------------->
             <div>
               <label for="age" class="form-label">Age</label>
-              <div class=" mb-2">
+              <div>
                 <input id="age" formControlName="age" class="form-control form-control-sm" type="number"
                   placeholder="*Age"
-                  [ngClass]="{'is-invalid': (addEmploy.get('age')?.touched || addEmploy.get('age')?.dirty) && !addEmploy.get('age')?.valid }">
+                  [ngClass]="{'is-invalid': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
+                <div class="spacer" [ngClass]="{'d-none': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
+                </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="addEmploy.get('age')?.errors?.['required']">
+                  <span *ngIf="fm['age'].errors?.['required']">
                     {{validationForms.required}}
                   </span>
-                  <span *ngIf="addEmploy.get('age')?.errors?.['max']">
+                  <span *ngIf="fm['age'].errors?.['max']">
                     {{validationForms.maxNum}}
                   </span>
                 </span>
@@ -63,12 +71,15 @@
             <!------------------------ inputs Work --------------------------->
             <div>
               <label for="work" class="form-label">Work</label>
-              <div class=" mb-2">
+              <div>
                 <input id="work" formControlName="work" class="form-control form-control-sm" type="text"
                   placeholder="*Work"
-                  [ngClass]="{'is-invalid': (addEmploy.get('work')?.touched || addEmploy.get('work')?.dirty) && !addEmploy.get('work')?.valid }">
+                  [ngClass]="{'is-invalid': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="addEmploy.get('work')?.errors?.['required']">
+                  <span *ngIf="fm['work'].errors?.['required']">
                     {{validationForms.required}}
                   </span>
                 </span>
@@ -82,9 +93,12 @@
               <div class=" mb-2">
                 <input id="roll" formControlName="roll" class="form-control form-control-sm" type="text"
                   placeholder="*Roll"
-                  [ngClass]="{'is-invalid': (addEmploy.get('roll')?.touched || addEmploy.get('roll')?.dirty) && !addEmploy.get('roll')?.valid }">
+                  [ngClass]="{'is-invalid': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="addEmploy.get('roll')?.errors?.['required']">
+                  <span *ngIf="fm['roll'].errors?.['required']">
                     {{validationForms.required}}
                   </span>
                 </span>
@@ -94,16 +108,16 @@
             <div>
               <label for="gender" class="form-label">Gender</label>
               <select class="form-select mb-2" aria-label="Default select example" formControlName="gender"
-                [ngClass]="{'is-invalid': (addEmploy.get('gender')?.touched || addEmploy.get('gender')?.dirty) && !addEmploy.get('gender')?.valid }">
+                [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
               </select>
+              <div class="spacer"
+                  [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+                </div>
               <span class="invalid-feedback">
-                <span *ngIf="addEmploy.get('gender')?.errors?.['required']">
+                <span *ngIf="fm['gender'].errors?.['required']">
                   {{validationForms.required}}
-                </span>
-                <span *ngIf="addEmploy.get('gender')?.errors?.['minlength']">
-                  {{validationForms.minLength}}
                 </span>
               </span>
             </div>
@@ -116,8 +130,10 @@
             </div>
             <!------------------------ Buttons controls --------------------------->
             <div class="mt-4">
-              <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button" routerLink='/employes'>ToBack</button>
-              <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit" [disabled]="!addEmploy.valid">Add</button>
+              <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+                routerLink='/employes'>ToBack</button>
+              <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+                [disabled]="!addEmploy.valid">Add</button>
             </div>
           </div>
         </div>

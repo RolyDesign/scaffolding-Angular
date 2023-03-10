@@ -40,8 +40,12 @@ export class EmployeCreateComponent implements OnInit {
     });
   }
 
+
   add() {
     this.employeService.create(this.addEmploy.getRawValue() as EmployeModel);
     this.router.navigate(['/employes']);
+  }
+  get fm() {
+    return this.addEmploy.controls
   }
 }

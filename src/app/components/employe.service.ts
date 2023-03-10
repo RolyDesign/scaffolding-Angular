@@ -13,72 +13,43 @@ export class EmployService {
    * Sustituir data en memoria y metodos por logica real
    */
 
-  private employes = new BehaviorSubject<EmployeModel[]>([
-    {
-      id: 1,
-      name: 'Ana',
-      lastName: 'Garcia',
-      age: 25,
-      work: 'Disenados',
-      roll: 'Empleado',
-      gender: Genderenum.female,
-      suspended: false,
-    },
-    {
-      id: 2,
-      name: 'Pedro',
-      lastName: 'Jimenez',
-      age: 40,
-      work: 'Desarrolador',
-      roll: 'Admin',
-      gender: Genderenum.male,
-      suspended: true,
-    },
-    {
-      id: 3,
-      name: 'Lazaro',
-      lastName: 'Gonzalez',
-      age: 38,
-      work: 'Desarrollador',
-      roll: 'SEO',
-      gender: Genderenum.male,
-      suspended: false,
-    },
-    {
-      id: 4,
-      name: 'Nancy',
-      lastName: 'Rodriguez',
-      age: 50,
-      work: 'Limpiadora',
-      roll: 'employe',
-      gender: Genderenum.female,
-      suspended: false,
-    },
-    {
-      id: 5,
-      name: 'Barbara',
-      lastName: 'Gonzalez',
-      age: 35,
-      work: 'Desarrolador',
-      roll: 'Empleado',
-      gender: Genderenum.female,
-      suspended: false,
-    },
-  ]);
+  private employes = new BehaviorSubject<EmployeModel[]>([]);
   constructor(http: HttpClient) {}
 
   getAll(): Observable<EmployeModel[]> {
     return this.employes.asObservable();
   }
+
   getById(id: number): Observable<EmployeModel> {
     return this.employes.pipe(
       map((r) => r.filter((r) => r.id === id)),
       switchMap((r) => r.map((r) => r))
     );
   }
+
   create(data: EmployeModel) {
+    let id;
+    if (this.employes.getValue().length == 0) {
+      id = 1;
+    } else {
+      id =
+        this.employes
+          .getValue()
+          .sort((a, b) => a.id - b.id)
+          .reverse()[0].id + 1;
+    }
+    data.id = id;
     this.employes.next(this.employes.getValue().concat(data));
   }
-  update(id: number) {}
-  delete(id: number) {}
+
+  update(id: number, data: EmployeModel) {
+    let list = this.employes.getValue().filter((x) => x.id !== id);
+    data.id = id;
+    this.employes.next(list.concat(data));
+  }
+
+  delete(id: number) {
+    let list = this.employes.getValue().filter((x) => x.id !== id);
+    this.employes.next(list);
+  }
 }

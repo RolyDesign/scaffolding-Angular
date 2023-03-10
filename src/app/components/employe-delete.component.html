@@ -1,1 +1,32 @@
-<p>license-delete works!</p>
+<ng-container *ngIf="employ$ | async as Employ ">
+  <div class="container-fluid">
+
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="row p-0 ">
+        <div class="col-md-1">
+          <div class="fw-bold" *ngFor="let head of heads">{{head}}</div>
+        </div>
+        <div class="col-md-11">
+          <div>{{Employ.name}}</div>
+          <div>{{Employ.lastName}}</div>
+          <div>{{Employ.age}}</div>
+          <div>{{Employ.work}}</div>
+          <div>{{Employ.roll}}</div>
+          <div>{{Employ.gender}}</div>
+          <div>
+            <fa-icon *ngIf="Employ.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
+            <fa-icon *ngIf="!Employ.suspended" [icon]="fontIcons.faSquare"></fa-icon>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 col-md-4">
+        <button routerLink='/employes' class="btn btn-secondary me-5 w-25">ToBack</button>
+        <button (click)="delete()" class="btn btn-danger w-25">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

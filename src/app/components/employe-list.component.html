@@ -22,20 +22,20 @@
           <tbody class="table-group-divider">
             <ng-container *ngFor="let employe of listEmployes">
               <tr>
-                <td>{{employe.name}}</td>
-                <td>{{employe.lastName}}</td>
-                <td>{{employe.age}}</td>
-                <td>{{employe.work}}</td>
-                <td>{{employe.roll}}</td>
-                <td>{{employe.gender}}</td>
-                <td>
+                <td >{{employe.name}}</td>
+                <td class="fit pe-5">{{employe.lastName}}</td>
+                <td class="fit pe-5">{{employe.age}}</td>
+                <td class="fit pe-5">{{employe.work}}</td>
+                <td class="fit pe-5">{{employe.roll}}</td>
+                <td class="fit pe-5">{{employe.gender}}</td>
+                <td class="fit pe-5">
                   <fa-icon *ngIf="employe.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
                   <fa-icon *ngIf="!employe.suspended" [icon]="fontIcons.faSquare"></fa-icon>
                 </td>
-                <td><a class="text-decoration-none text-info" [routerLink]="['/employes', employe.id]">Detail</a></td>
-                <td><a class="text-decoration-none text-info" [routerLink]="['/employes/edit', employe.id]">Edit</a>
+                <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes', employe.id]">Detail</a></td>
+                <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes/edit', employe.id]">Edit</a>
                 </td>
-                <td><a class="text-decoration-none text-info" [routerLink]="['/employes/delete', employe.id]">Delete</a>
+                <td class="fit pe-3"><a class="text-decoration-none text-info" [routerLink]="['/employes/delete', employe.id]">Delete</a>
                 </td>
               </tr>
             </ng-container>
@@ -45,6 +45,3 @@
     </div>
   </div>
 </ng-container>
-
-<h2>Json Generado apartir de un objeto.ts</h2>
-<pre>{{json}}</pre>
