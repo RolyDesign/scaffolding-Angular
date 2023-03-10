@@ -15,7 +15,7 @@ export class EmployeListComponent implements OnInit {
   listEmployes$!: Observable<EmployeModel[]>;
   headsTable = {
     notFitColum: 'name',
-    fitColum: ['Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended'],
+    fitColum: ['Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended', 'Email'],
   };
   fontIcons = FONT_ICONS;
   mymodel = myModel;

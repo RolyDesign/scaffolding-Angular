@@ -9,5 +9,6 @@ export interface EmployeModel{
   roll:string,
   gender: Genderenum,
   suspended: boolean,
+  email:string
 }
 

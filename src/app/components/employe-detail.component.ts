@@ -15,7 +15,7 @@ export class EmployeDetailComponent {
   title = 'Employ Detail';
   id: number;
   employ$!: Observable<EmployeModel>;
-  heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended'];
+  heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender','Email', 'Suspended'];
   faSquareCheck = faSquareCheck;
   faSquare = faSquare;
   constructor(

@@ -33,6 +33,7 @@
                   <fa-icon *ngIf="employe.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
                   <fa-icon *ngIf="!employe.suspended" [icon]="fontIcons.faSquare"></fa-icon>
                 </td>
+                <td class="fit pe-5">{{employe.email}}</td>
                 <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes', employe.id]">Detail</a></td>
                 <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes/edit', employe.id]">Edit</a>
                 </td>

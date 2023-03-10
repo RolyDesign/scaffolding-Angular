@@ -49,7 +49,7 @@
                 </span>
               </div>
             </div>
-            <!------------------------ inputs LastName --------------------------->
+            <!------------------------ inputs Age --------------------------->
             <div>
               <label for="age" class="form-label">Age</label>
               <div>
@@ -107,7 +107,7 @@
             <!------------------------ inputs Gender --------------------------->
             <div>
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select mb-2" aria-label="Default select example" formControlName="gender"
+              <select class="form-select form-select-sm mb-2" aria-label="Default select example" formControlName="gender"
                 [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
@@ -120,6 +120,26 @@
                   {{validationForms.required}}
                 </span>
               </span>
+            </div>
+             <!------------------------ inputs Email --------------------------->
+             <div>
+              <label for="email" class="form-label">Email</label>
+              <div class=" mb-2">
+                <input id="email" formControlName="email" class="form-control form-control-sm" type="email"
+                  placeholder="*email"
+                  [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <span *ngIf="fm['email'].errors?.['required']">
+                    {{validationForms.required}}
+                  </span>
+                  <span *ngIf="fm['email'].errors?.['pattern']">
+                    {{validationForms.emailPatern}}
+                  </span>
+                </span>
+              </div>
             </div>
             <!------------------------ inputs Suspended --------------------------->
             <div class="form-check mb-2">

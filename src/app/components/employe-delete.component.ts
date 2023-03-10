@@ -14,7 +14,7 @@ export class EmployeDeleteComponent {
   title = 'Employ Delete';
   id: number;
   employ$!: Observable<EmployeModel>;
-  heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended'];
+  heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender','Email', 'Suspended'];
   fontIcons = FONT_ICONS;
 
   constructor(

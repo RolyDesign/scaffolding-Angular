@@ -20,6 +20,7 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
   validationForms =VALIDATION_FORMS
   id = Number(this.route.snapshot.paramMap.get('id'))
   sub!:Subscription
+  patternValidator = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
   constructor(
     private fb: FormBuilder,
     private employeService: EmployService,
@@ -37,6 +38,11 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
         work: [res.work, [Validators.required]],
         roll: [res.roll, [Validators.required]],
         gender: [res.gender, [Validators.required]],
+        email: [
+          res.email,
+          [Validators.pattern(this.patternValidator),
+          Validators.required]
+        ],
         suspended: [res.suspended],
       });
     });

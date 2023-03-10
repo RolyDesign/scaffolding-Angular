@@ -1,4 +1,6 @@
 export interface IPropertyType {
+  propertyName:string,
+  viewName: string,
   type: DataTypeEnumn;
   viewType: IViewType | null;
   validators: ValidatorEnum[] | null;
@@ -18,6 +20,7 @@ export enum DataTypeEnumn {
   array = '[]',
   obect = '{}',
   any = 'any',
+  null = 'null',
   customEnum = 'customEnum',
 }
 
@@ -70,12 +73,16 @@ export interface myModel {
 
 export const myModel: myModel = {
   id: {
+    propertyName:'id',
+    viewName:'Id',
     type: DataTypeEnumn.number,
     viewType: null,
     validators: null,
     valueValidators: null,
   },
   name: {
+    propertyName:'name',
+    viewName:'Name',
     type: DataTypeEnumn.string,
     viewType: {
       element: ElementEnum.Input,
@@ -85,6 +92,8 @@ export const myModel: myModel = {
     valueValidators: [3, 20, null],
   },
   lastName: {
+    propertyName:'lastName',
+    viewName:'Last Name',
     type: DataTypeEnumn.string,
     viewType: {
       element: ElementEnum.Input,
@@ -94,6 +103,8 @@ export const myModel: myModel = {
     valueValidators: [3, 20, null],
   },
   gender: {
+    propertyName:'gender',
+    viewName:'Gender',
     type: DataTypeEnumn.customEnum,
     viewType: {
       element: ElementEnum.Select,
@@ -103,6 +114,8 @@ export const myModel: myModel = {
     valueValidators: [null],
   },
   favorite: {
+    propertyName:'favorite',
+    viewName:'Favorite',
     type: DataTypeEnumn.bolean,
     viewType: {
       element: ElementEnum.Input,

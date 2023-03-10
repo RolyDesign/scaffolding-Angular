@@ -4,5 +4,6 @@ export const VALIDATION_FORMS = {
   maxNum: 'Exceeds the maximum value allowed',
   minNum: 'Does not exceed the minimum value allowed',
   maxLength:'Exceeds the maximum character allowed',
-  minLength:'Does not exceed the minimum characters allowed'
+  minLength:'Does not exceed the minimum characters allowed',
+  emailPatern:"It's not email"
 };
