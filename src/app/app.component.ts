@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'scfld-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'scaffolding';
+
+
 }

@@ -1,0 +1,69 @@
+{
+  "id": {
+    "type": "number",
+    "viewType": null,
+    "validators": null,
+    "valueValidators": null
+  },
+  "name": {
+    "type": "string",
+    "viewType": {
+      "element": "input",
+      "elementType": "text"
+    },
+    "validators": [
+      "min",
+      "max",
+      "required "
+    ],
+    "valueValidators": [
+      3,
+      20,
+      null
+    ]
+  },
+  "lastName": {
+    "type": "string",
+    "viewType": {
+      "element": "input",
+      "elementType": "text"
+    },
+    "validators": [
+      "min",
+      "max",
+      "required "
+    ],
+    "valueValidators": [
+      3,
+      20,
+      null
+    ]
+  },
+  "gender": {
+    "type": "customEnum",
+    "viewType": {
+      "element": "select",
+      "options": [
+        null,
+        "opt1",
+        "opt2",
+        "opt3"
+      ]
+    },
+    "validators": [
+      "required "
+    ],
+    "valueValidators": [
+      null
+    ]
+  },
+  "favorite": {
+    "type": "bolean",
+    "viewType": {
+      "element": "input",
+      "elementType": "checkbox"
+    },
+    "validators": [],
+    "valueValidators": []
+  }
+}
