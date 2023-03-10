@@ -1,5 +1,5 @@
 <ng-container *ngIf="listEmployes$ | async as listEmployes ">
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <div class="py-4">
       <div class=" mb-4  p-0 d-flex justify-content-between  ">
         <div>
@@ -9,11 +9,12 @@
         </div>
       </div>
       <!-- *********************Content***************-->
-      <div class="table-responsive">
+      <div class="table-responsive"*ngIf="listEmployes.length !== 0; else alertEmpty">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th *ngFor="let head of headsTable">{{head}}</th>
+              <th >{{headsTable.notFitColum}}</th>
+              <th class="fit pe-5" *ngFor="let head of headsTable.fitColum">{{head}}</th>
               <th></th>
               <th></th>
               <th></th>
@@ -45,3 +46,8 @@
     </div>
   </div>
 </ng-container>
+<ng-template #alertEmpty>
+  <div class="alert alert-warning text-center" role="alert">
+    Empty
+  </div>
+</ng-template>

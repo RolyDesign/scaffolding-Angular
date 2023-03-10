@@ -13,23 +13,18 @@ import { EmployService } from './employe.service';
 export class EmployeListComponent implements OnInit {
   title = 'Employes';
   listEmployes$!: Observable<EmployeModel[]>;
-  headsTable = [
-    'Name',
-    'Last Name',
-    'Age',
-    'Work',
-    'Roll',
-    'Gender',
-    'Suspended',
-  ];
+  headsTable = {
+    notFitColum: 'name',
+    fitColum: ['Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended'],
+  };
   fontIcons = FONT_ICONS;
-  mymodel = myModel
-  json!:string
+  mymodel = myModel;
+  json!: string;
   constructor(private employService: EmployService) {
     this.listEmployes$ = this.employService.getAll();
   }
   ngOnInit(): void {
-      this.json = JSON.stringify(this.mymodel,undefined, 2)
-      //document.write(this.json)
+    this.json = JSON.stringify(this.mymodel, undefined, 2);
+    //document.write(this.json)
   }
 }
