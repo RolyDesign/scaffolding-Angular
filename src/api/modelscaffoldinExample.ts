@@ -1,6 +1,6 @@
 export interface IPropertyType {
-  propertyName:string,
-  viewName: string,
+  propertyName: string;
+  viewName: string;
   type: DataTypeEnumn;
   viewType: IViewType | null;
   validators: ValidatorEnum[] | null;
@@ -63,67 +63,81 @@ export enum ValidatorEnum {
   required = 'required ',
 }
 
+
+//Model
 export interface myModel {
-  id: IPropertyType;
-  name: IPropertyType;
-  lastName: IPropertyType;
-  gender: IPropertyType;
-  favorite: IPropertyType;
+  modelName: string;
+  properties: IPropertyType[];
 }
 
+//model initialized
+//all the values are selectionables (Enums) except:
+//modelname, propertyName, viewName, options and valueValidators
+
 export const myModel: myModel = {
-  id: {
-    propertyName:'id',
-    viewName:'Id',
-    type: DataTypeEnumn.number,
-    viewType: null,
-    validators: null,
-    valueValidators: null,
-  },
-  name: {
-    propertyName:'name',
-    viewName:'Name',
-    type: DataTypeEnumn.string,
-    viewType: {
-      element: ElementEnum.Input,
-      elementType: ElementTypeEnum.Text,
+  modelName: 'Employes',
+  properties: [
+    {
+      propertyName: 'id',
+      viewName: 'Id',
+      type: DataTypeEnumn.number,
+      viewType: null,
+      validators: null,
+      valueValidators: null,
     },
-    validators: [ValidatorEnum.minlength, ValidatorEnum.maxlength, ValidatorEnum.required],
-    valueValidators: [3, 20, null],
-  },
-  lastName: {
-    propertyName:'lastName',
-    viewName:'Last Name',
-    type: DataTypeEnumn.string,
-    viewType: {
-      element: ElementEnum.Input,
-      elementType: ElementTypeEnum.Text,
+    {
+      propertyName: 'name',
+      viewName: 'Name',
+      type: DataTypeEnumn.string,
+      viewType: {
+        element: ElementEnum.Input,
+        elementType: ElementTypeEnum.Text,
+      },
+      validators: [
+        ValidatorEnum.minlength,
+        ValidatorEnum.maxlength,
+        ValidatorEnum.required,
+      ],
+      valueValidators: [3, 20, null],
     },
-    validators: [ValidatorEnum.minlength, ValidatorEnum.maxlength, ValidatorEnum.required],
-    valueValidators: [3, 20, null],
-  },
-  gender: {
-    propertyName:'gender',
-    viewName:'Gender',
-    type: DataTypeEnumn.customEnum,
-    viewType: {
-      element: ElementEnum.Select,
-      options: [null, 'opt1', 'opt2', 'opt3'],
+    {
+      propertyName: 'lastName',
+      viewName: 'Last Name',
+      type: DataTypeEnumn.string,
+      viewType: {
+        element: ElementEnum.Input,
+        elementType: ElementTypeEnum.Text,
+      },
+      validators: [
+        ValidatorEnum.minlength,
+        ValidatorEnum.maxlength,
+        ValidatorEnum.required,
+      ],
+      valueValidators: [3, 20, null],
     },
-    validators: [ValidatorEnum.required],
-    valueValidators: [null],
-  },
-  favorite: {
-    propertyName:'favorite',
-    viewName:'Favorite',
-    type: DataTypeEnumn.bolean,
-    viewType: {
-      element: ElementEnum.Input,
-      elementType: ElementTypeEnum.Checkbox,
+    {
+      propertyName: 'gender',
+      viewName: 'Gender',
+      type: DataTypeEnumn.customEnum,
+      viewType: {
+        element: ElementEnum.Select,
+        options: [null, 'opt1', 'opt2', 'opt3'],
+      },
+      validators: [ValidatorEnum.required],
+      valueValidators: [null],
     },
-    validators: [],
-    valueValidators: [],
-  },
+    {
+      propertyName: 'favorite',
+      viewName: 'Favorite',
+      type: DataTypeEnumn.bolean,
+      viewType: {
+        element: ElementEnum.Input,
+        elementType: ElementTypeEnum.Checkbox,
+      },
+      validators: [],
+      valueValidators: [],
+    },
+  ],
 };
 
 /**
