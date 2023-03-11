@@ -14,7 +14,7 @@
               <label for="name" class=" form-label">Name</label>
               <div>
                 <input id="name" formControlName="name" class="form-control form-control-sm" type="text"
-                  placeholder="*Name"
+                  placeholder="Name"
                   [ngClass]="{'is-invalid': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
@@ -34,7 +34,7 @@
               <label for="lastName" class="form-label">Last Name</label>
               <div>
                 <input id="lastName" formControlName="lastName" class="form-control form-control-sm" type="text"
-                  placeholder="*last Name"
+                  placeholder="Last Name"
                   [ngClass]="{'is-invalid': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
@@ -54,7 +54,7 @@
               <label for="age" class="form-label">Age</label>
               <div>
                 <input id="age" formControlName="age" class="form-control form-control-sm" type="number"
-                  placeholder="*Age"
+                  placeholder="Age"
                   [ngClass]="{'is-invalid': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
                 <div class="spacer" [ngClass]="{'d-none': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
                 </div>
@@ -65,6 +65,9 @@
                   <span *ngIf="fm['age'].errors?.['max']">
                     {{validationForms.maxNum}}
                   </span>
+                  <span *ngIf="fm['age'].errors?.['min']">
+                    {{validationForms.minNum}}
+                  </span>
                 </span>
               </div>
             </div>
@@ -73,7 +76,7 @@
               <label for="work" class="form-label">Work</label>
               <div>
                 <input id="work" formControlName="work" class="form-control form-control-sm" type="text"
-                  placeholder="*Work"
+                  placeholder="Work"
                   [ngClass]="{'is-invalid': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
@@ -92,7 +95,7 @@
               <label for="roll" class="form-label">Roll</label>
               <div class=" mb-2">
                 <input id="roll" formControlName="roll" class="form-control form-control-sm" type="text"
-                  placeholder="*Roll"
+                  placeholder="Roll"
                   [ngClass]="{'is-invalid': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
@@ -107,26 +110,27 @@
             <!------------------------ inputs Gender --------------------------->
             <div>
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select form-select-sm mb-2" aria-label="Default select example" formControlName="gender"
+              <select class="form-select form-select-sm mb-2" aria-label="Default select example"
+                formControlName="gender"
                 [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
               </select>
               <div class="spacer"
-                  [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
-                </div>
+                [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+              </div>
               <span class="invalid-feedback">
                 <span *ngIf="fm['gender'].errors?.['required']">
                   {{validationForms.required}}
                 </span>
               </span>
             </div>
-             <!------------------------ inputs Email --------------------------->
-             <div>
+            <!------------------------ inputs Email --------------------------->
+            <div>
               <label for="email" class="form-label">Email</label>
               <div class=" mb-2">
                 <input id="email" formControlName="email" class="form-control form-control-sm" type="email"
-                  placeholder="*email"
+                  placeholder="Email"
                   [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
@@ -148,13 +152,15 @@
                 Suspended
               </label>
             </div>
-            <!------------------------ Buttons controls --------------------------->
-            <div class="mt-4">
-              <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
-                routerLink='/employes'>ToBack</button>
-              <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
-                [disabled]="!editEmploy.valid">Save</button>
-            </div>
+
+          </div>
+          <!------------------------ Buttons controls --------------------------->
+          <div class="col-md-6"></div>
+          <div class="mt-4 col-md-6">
+            <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+              routerLink='/employes'>Cancel</button>
+            <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+              [disabled]="!editEmploy.valid">Add</button>
           </div>
         </div>
 

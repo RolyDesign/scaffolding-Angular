@@ -13,7 +13,19 @@ export class EmployService {
    * Sustituir data en memoria y metodos por logica real
    */
 
-  private employes = new BehaviorSubject<EmployeModel[]>([]);
+  private employes = new BehaviorSubject<EmployeModel[]>([
+    {
+      id:1,
+      name: "Rolando",
+      lastName: 'Gonzalez',
+      gender: Genderenum.male,
+      age:33,
+      email: 'rgonz@gmail.com',
+      roll:'Admin',
+      suspended: false,
+      work: 'Programmer'
+    }
+  ]);
   constructor(http: HttpClient) {}
 
   getAll(): Observable<EmployeModel[]> {

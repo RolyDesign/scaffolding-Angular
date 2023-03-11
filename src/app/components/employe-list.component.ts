@@ -13,10 +13,16 @@ import { EmployService } from './employe.service';
 export class EmployeListComponent implements OnInit {
   title = 'Employes';
   listEmployes$!: Observable<EmployeModel[]>;
-  headsTable = {
-    notFitColum: 'name',
-    fitColum: ['Last Name', 'Age', 'Work', 'Roll', 'Gender', 'Suspended', 'Email'],
-  };
+  headsTable = [
+    'name',
+    'Last Name',
+    'Age',
+    'Work',
+    'Roll',
+    'Gender',
+    'Suspended',
+    'Email'
+  ];
   fontIcons = FONT_ICONS;
   mymodel = myModel;
   json!: string;

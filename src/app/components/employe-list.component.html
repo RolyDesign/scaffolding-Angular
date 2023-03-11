@@ -1,5 +1,5 @@
 <ng-container *ngIf="listEmployes$ | async as listEmployes ">
-  <div class="container-fluid" >
+  <div class="container-fluid">
     <div class="py-4">
       <div class=" mb-4  p-0 d-flex justify-content-between  ">
         <div>
@@ -9,12 +9,11 @@
         </div>
       </div>
       <!-- *********************Content***************-->
-      <div class="table-responsive"*ngIf="listEmployes.length !== 0; else alertEmpty">
+      <div class="table-responsive" *ngIf="listEmployes.length !== 0; else alertEmpty">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th >{{headsTable.notFitColum}}</th>
-              <th class="fit pe-5" *ngFor="let head of headsTable.fitColum">{{head}}</th>
+              <th *ngFor="let head of headsTable ">{{head | uppercase}}</th>
               <th></th>
               <th></th>
               <th></th>
@@ -23,21 +22,24 @@
           <tbody class="table-group-divider">
             <ng-container *ngFor="let employe of listEmployes">
               <tr>
-                <td >{{employe.name}}</td>
-                <td class="fit pe-5">{{employe.lastName}}</td>
-                <td class="fit pe-5">{{employe.age}}</td>
-                <td class="fit pe-5">{{employe.work}}</td>
-                <td class="fit pe-5">{{employe.roll}}</td>
-                <td class="fit pe-5">{{employe.gender}}</td>
-                <td class="fit pe-5">
+                <td>{{employe.name}}</td>
+                <td>{{employe.lastName}}</td>
+                <td>{{employe.age}}</td>
+                <td>{{employe.work}}</td>
+                <td>{{employe.roll}}</td>
+                <td>{{employe.gender}}</td>
+                <td>
                   <fa-icon *ngIf="employe.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
                   <fa-icon *ngIf="!employe.suspended" [icon]="fontIcons.faSquare"></fa-icon>
                 </td>
-                <td class="fit pe-5">{{employe.email}}</td>
-                <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes', employe.id]">Detail</a></td>
-                <td class="fit "><a class="text-decoration-none text-info" [routerLink]="['/employes/edit', employe.id]">Edit</a>
+                <td >{{employe.email}}</td>
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/employes', employe.id]">Detail</a></td>
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/employes/edit', employe.id]">Edit</a>
                 </td>
-                <td class="fit pe-3"><a class="text-decoration-none text-info" [routerLink]="['/employes/delete', employe.id]">Delete</a>
+                <td><a class="text-decoration-none text-info"
+                    [routerLink]="['/employes/delete', employe.id]">Delete</a>
                 </td>
               </tr>
             </ng-container>
