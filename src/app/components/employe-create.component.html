@@ -15,17 +15,12 @@
               <div>
                 <input id="name" formControlName="name" class="form-control form-control-sm" type="text"
                   placeholder="Name"
-                  [ngClass]="{'is-invalid': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.name}">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                  [ngClass]="{'d-none': errorMessage.name }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['name'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['name'].errors?.['minlength']">
-                    {{validationForms.minLength}}
-                  </span>
+                 {{errorMessage.name}}
                 </span>
               </div>
             </div>
@@ -35,17 +30,12 @@
               <div>
                 <input id="lastName" formControlName="lastName" class="form-control form-control-sm" type="text"
                   placeholder="Last Name"
-                  [ngClass]="{'is-invalid': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.lastName}">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                  [ngClass]="{'d-none': errorMessage.lastName }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['lastName'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['lastName'].errors?.['minlength']">
-                    {{validationForms.minLength}}
-                  </span>
+                 {{errorMessage.lastName}}
                 </span>
               </div>
             </div>
@@ -55,19 +45,11 @@
               <div>
                 <input id="age" formControlName="age" class="form-control form-control-sm" type="number"
                   placeholder="Age"
-                  [ngClass]="{'is-invalid': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
-                <div class="spacer" [ngClass]="{'d-none': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.age }">
+                <div class="spacer" [ngClass]="{'d-none': errorMessage.age }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['age'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['age'].errors?.['max']">
-                    {{validationForms.maxNum}}
-                  </span>
-                  <span *ngIf="fm['age'].errors?.['min']">
-                    {{validationForms.minNum}}
-                  </span>
+                 {{errorMessage.age}}
                 </span>
               </div>
             </div>
@@ -77,14 +59,12 @@
               <div>
                 <input id="work" formControlName="work" class="form-control form-control-sm" type="text"
                   placeholder="Work"
-                  [ngClass]="{'is-invalid': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.work }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                  [ngClass]="{'d-none': errorMessage.work }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['work'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
+                 {{errorMessage.work}}
                 </span>
               </div>
             </div>
@@ -93,17 +73,15 @@
             <!------------------------ inputs Roll --------------------------->
             <div>
               <label for="roll" class="form-label">Roll</label>
-              <div class=" mb-2">
+              <div >
                 <input id="roll" formControlName="roll" class="form-control form-control-sm" type="text"
                   placeholder="Roll"
-                  [ngClass]="{'is-invalid': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.roll }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                  [ngClass]="{'d-none': errorMessage.roll }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['roll'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
+                 {{errorMessage.roll}}
                 </span>
               </div>
             </div>
@@ -112,47 +90,39 @@
               <label for="gender" class="form-label">Gender</label>
               <select class="form-select form-select-sm mb-2" aria-label="Default select example"
                 formControlName="gender"
-                [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+                [ngClass]="{'is-invalid': errorMessage.gender }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
               </select>
               <div class="spacer"
-                [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+                [ngClass]="{'d-none': errorMessage.gender }">
               </div>
               <span class="invalid-feedback">
-                <span *ngIf="fm['gender'].errors?.['required']">
-                  {{validationForms.required}}
-                </span>
+               {{errorMessage.gender}}
               </span>
             </div>
             <!------------------------ inputs Email --------------------------->
             <div>
               <label for="email" class="form-label">Email</label>
-              <div class=" mb-2">
+              <div >
                 <input id="email" formControlName="email" class="form-control form-control-sm" type="email"
                   placeholder="Email"
-                  [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.email }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                  [ngClass]="{'d-none': errorMessage.email }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['email'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['email'].errors?.['pattern']">
-                    {{validationForms.emailPatern}}
-                  </span>
+                 {{errorMessage.email}}
                 </span>
               </div>
             </div>
             <!------------------------ inputs Suspended --------------------------->
-            <div class="form-check mb-2">
+            <div class="form-check">
               <input class="form-check-input" type="checkbox" id="suspended" formControlName="suspended">
               <label class="form-check-label" for="suspended">
                 Suspended
               </label>
             </div>
-
           </div>
           <!------------------------ Buttons controls --------------------------->
           <div class="col-md-6"></div>
@@ -163,7 +133,6 @@
               [disabled]="!addEmploy.valid">Add</button>
           </div>
         </div>
-
       </form>
     </div>
   </div>

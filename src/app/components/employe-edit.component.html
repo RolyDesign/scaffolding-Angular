@@ -15,17 +15,12 @@
               <div>
                 <input id="name" formControlName="name" class="form-control form-control-sm" type="text"
                   placeholder="Name"
-                  [ngClass]="{'is-invalid': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.name}">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                  [ngClass]="{'d-none': errorMessage.name }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['name'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['name'].errors?.['minlength']">
-                    {{validationForms.minLength}}
-                  </span>
+                  {{errorMessage.name}}
                 </span>
               </div>
             </div>
@@ -35,17 +30,12 @@
               <div>
                 <input id="lastName" formControlName="lastName" class="form-control form-control-sm" type="text"
                   placeholder="Last Name"
-                  [ngClass]="{'is-invalid': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.lastName}">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                  [ngClass]="{'d-none': errorMessage.lastName }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['lastName'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['lastName'].errors?.['minlength']">
-                    {{validationForms.minLength}}
-                  </span>
+                 {{errorMessage.lastName}}
                 </span>
               </div>
             </div>
@@ -55,19 +45,11 @@
               <div>
                 <input id="age" formControlName="age" class="form-control form-control-sm" type="number"
                   placeholder="Age"
-                  [ngClass]="{'is-invalid': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
-                <div class="spacer" [ngClass]="{'d-none': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.age }">
+                <div class="spacer" [ngClass]="{'d-none': errorMessage.age }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['age'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['age'].errors?.['max']">
-                    {{validationForms.maxNum}}
-                  </span>
-                  <span *ngIf="fm['age'].errors?.['min']">
-                    {{validationForms.minNum}}
-                  </span>
+                 {{errorMessage.age}}
                 </span>
               </div>
             </div>
@@ -140,7 +122,7 @@
                     {{validationForms.required}}
                   </span>
                   <span *ngIf="fm['email'].errors?.['pattern']">
-                    {{validationForms.emailPatern}}
+                    {{validationForms.pattern}}
                   </span>
                 </span>
               </div>
