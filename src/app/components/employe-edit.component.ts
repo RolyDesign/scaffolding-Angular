@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
 import { EployGenderEnum } from './employe.enum/employ-gender.enum';
 import { EmployeModel, IEmployeUpdateDTO } from './employe.model';
@@ -38,7 +38,8 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
     gender: '',
     email: '',
   };
-  lastValues!: IEmployeUpdateDTO;
+
+  lastValue!: IEmployeUpdateDTO;
   constructor(
     private fb: FormBuilder,
     private employeService: EmployService,
@@ -70,18 +71,17 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
     });
 
     const form = this.editEmploy;
-    this.lastValues = form.value;
+    this.lastValue = form.value;
 
-    this.editEmploy.valueChanges.subscribe((v) => {
-      for (const key in this.lastValues) {
-        if (Object.prototype.hasOwnProperty.call(this.lastValues, key)) {
-          const value = this.lastValues[key as keyof IEmployeUpdateDTO];
-          if (v[key] !== this.lastValues[key as keyof IEmployeUpdateDTO]) {
+    form.valueChanges.subscribe((v) => {
+      for (const key in this.lastValue) {
+        if (Object.prototype.hasOwnProperty.call(this.lastValue, key)) {
+          if (v[key] !== this.lastValue[key as keyof IEmployeUpdateDTO]) {
             this.setMessage(form.get(`${key}`), key);
           }
         }
       }
-      this.lastValues = v;
+      this.lastValue = v;
     });
   }
 
@@ -96,16 +96,16 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
   setMessage(c: AbstractControl | null, key: string): void {
     if (c !== null) {
       if ((c.touched || c.dirty) && c.errors) {
-        this.errorMessage[key as keyof TEmployErrorMessageValidation] = Object.keys(
-          c.errors
-        )
-          .map((key) => this.validationForms[key as keyof TEmployValidator])
-          .join(' ');
+        this.errorMessage[key as keyof TEmployErrorMessageValidation] =
+          Object.keys(c.errors)
+            .map((key) => this.validationForms[key as keyof TEmployValidator])
+            .join(' ');
       } else {
         this.errorMessage[key as keyof TEmployErrorMessageValidation] = '';
       }
     }
   }
+
   get fm() {
     return this.editEmploy.controls;
   }

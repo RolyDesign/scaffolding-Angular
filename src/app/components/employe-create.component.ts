@@ -34,7 +34,7 @@ export class EmployeCreateComponent implements OnInit {
     gender: '',
     email: '',
   };
-  values!: IEmployeCreateDTO;
+  lastValue!: IEmployeCreateDTO;
 
   constructor(
     private fb: FormBuilder,
@@ -57,18 +57,17 @@ export class EmployeCreateComponent implements OnInit {
       suspended: [false],
     });
     const form = this.addEmploy;
-    this.values = form.value;
+    this.lastValue = form.value;
 
     this.addEmploy.valueChanges.subscribe((v) => {
-      for (const key in this.values) {
-        if (Object.prototype.hasOwnProperty.call(this.values, key)) {
-          const value = this.values[key as keyof IEmployeCreateDTO];
-          if (v[key] !== this.values[key as keyof IEmployeCreateDTO]) {
+      for (const key in this.lastValue) {
+        if (Object.prototype.hasOwnProperty.call(this.lastValue, key)) {
+          if (v[key] !== this.lastValue[key as keyof IEmployeCreateDTO]) {
             this.setMessage(form.get(`${key}`), key);
           }
         }
       }
-      this.values = v;
+      this.lastValue = v;
     });
   }
 
