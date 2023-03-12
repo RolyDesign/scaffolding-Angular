@@ -1,4 +1,5 @@
-import { Genderenum } from "./employe.enum/gender.enum";
+import { EployGenderEnum } from "./employe.enum/employ-gender.enum"
+
 
 export interface EmployeModel{
   id:number,
@@ -7,7 +8,7 @@ export interface EmployeModel{
   age:number,
   work:string,
   roll:string,
-  gender: Genderenum,
+  gender: EployGenderEnum,
   suspended: boolean,
   email:string
 }
@@ -18,7 +19,7 @@ export interface IEmployeCreateDTO{
   age:number,
   work:string,
   roll:string,
-  gender: Genderenum,
+  gender: EployGenderEnum,
   suspended: boolean,
   email:string
 }
@@ -29,7 +30,7 @@ export interface IEmployeGetDTO{
   age:number,
   work:string,
   roll:string,
-  gender: Genderenum,
+  gender: EployGenderEnum,
   suspended: boolean,
   email:string
 }
@@ -40,7 +41,7 @@ export interface IEmployeUpdateDTO{
   age:number,
   work:string,
   roll:string,
-  gender: Genderenum,
+  gender: EployGenderEnum,
   suspended: boolean,
   email:string
 }

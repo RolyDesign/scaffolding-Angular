@@ -1,6 +1,7 @@
-import { TValidator } from "../employe.type/error-message-validation.type";
+import { TEmployValidator } from "../employe.type/employ-validator.type";
 
-export const VALIDATION_FORMS : TValidator = {
+
+export const EMPLOY_VALIDATION_FORMS : TEmployValidator = {
   required: 'The field is required',
   max: 'Exceeds the maximum value allowed',
   min: 'Does not exceed the minimum value allowed',

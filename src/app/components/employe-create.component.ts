@@ -8,13 +8,10 @@ import {
 import { Router } from '@angular/router';
 import { EmployeModel, IEmployeCreateDTO } from './employe.model';
 import { EmployService } from './employe.service';
-import { Genderenum } from './employe.enum/gender.enum';
-import {
-  TErrorMessageValidation,
-  TValidator,
-} from './employe.type/error-message-validation.type';
-import { VALIDATION_FORMS } from './employe.const/validation-form.const';
-
+import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
+import { EployGenderEnum } from './employe.enum/employ-gender.enum';
+import { TEmployErrorMessageValidation } from './employe.type/employ-error-message-validation.type';
+import { TEmployValidator } from './employe.type/employ-validator.type';
 
 @Component({
   selector: 'scfld-employe-create',
@@ -22,13 +19,13 @@ import { VALIDATION_FORMS } from './employe.const/validation-form.const';
   styleUrls: ['./employe-create.component.scss'],
 })
 export class EmployeCreateComponent implements OnInit {
-  genderOptions = [Genderenum.female, Genderenum.male];
+  genderOptions = [EployGenderEnum.female, EployGenderEnum.male];
   addEmploy!: FormGroup;
   title = 'Create Employ';
-  validationForms = VALIDATION_FORMS;
+  validationForms = EMPLOY_VALIDATION_FORMS;
   patternValidator =
     "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-  errorMessage: TErrorMessageValidation = {
+  errorMessage: TEmployErrorMessageValidation = {
     name: '',
     lastName: '',
     age: '',
@@ -83,13 +80,12 @@ export class EmployeCreateComponent implements OnInit {
   setMessage(c: AbstractControl | null, key: string): void {
     if (c !== null) {
       if ((c.touched || c.dirty) && c.errors) {
-        this.errorMessage[key as keyof TErrorMessageValidation] = Object.keys(
-          c.errors
-        )
-          .map((key) => this.validationForms[key as keyof TValidator])
-          .join(' ');
+        this.errorMessage[key as keyof TEmployErrorMessageValidation] =
+          Object.keys(c.errors)
+            .map((key) => this.validationForms[key as keyof TEmployValidator])
+            .join(' ');
       } else {
-        this.errorMessage[key as keyof TErrorMessageValidation] = '';
+        this.errorMessage[key as keyof TEmployErrorMessageValidation] = '';
       }
     }
   }

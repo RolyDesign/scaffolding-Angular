@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faSquare } from '@fortawesome/free-regular-svg-icons';
-import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { filter, map, Observable, switchMap, tap } from 'rxjs';
+import {  Observable} from 'rxjs';
+import { EMPLOY_FONT_ICONS } from './employe.const/employ-font-icons.const';
 import { EmployeModel } from './employe.model';
 import { EmployService } from './employe.service';
 
@@ -16,8 +15,7 @@ export class EmployeDetailComponent {
   id: number;
   employ$!: Observable<EmployeModel>;
   heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender','Email', 'Suspended'];
-  faSquareCheck = faSquareCheck;
-  faSquare = faSquare;
+  fontIcons = EMPLOY_FONT_ICONS;
   constructor(
     private route: ActivatedRoute,
     private employeService: EmployService,

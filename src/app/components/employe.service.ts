@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, concat, map, Observable, switchMap, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { EployGenderEnum } from './employe.enum/employ-gender.enum';
 import { EmployeModel } from './employe.model';
-import { Genderenum } from './employe.enum/gender.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -15,16 +14,16 @@ export class EmployService {
 
   private employes = new BehaviorSubject<EmployeModel[]>([
     {
-      id:1,
-      name: "Rolando",
+      id: 1,
+      name: 'Rolando',
       lastName: 'Gonzalez',
-      gender: Genderenum.male,
-      age:33,
+      gender: EployGenderEnum.male,
+      age: 33,
       email: 'rgonz@gmail.com',
-      roll:'Admin',
+      roll: 'Admin',
       suspended: false,
-      work: 'Programmer'
-    }
+      work: 'Programmer',
+    },
   ]);
   constructor(http: HttpClient) {}
 

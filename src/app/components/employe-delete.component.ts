@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FONT_ICONS } from './employe.const/font-icons.const';
+import { EMPLOY_FONT_ICONS } from './employe.const/employ-font-icons.const';
 import { EmployeModel } from './employe.model';
 import { EmployService } from './employe.service';
 
@@ -15,7 +15,7 @@ export class EmployeDeleteComponent {
   id: number;
   employ$!: Observable<EmployeModel>;
   heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender','Email', 'Suspended'];
-  fontIcons = FONT_ICONS;
+  fontIcons = EMPLOY_FONT_ICONS;
 
   constructor(
     private route: ActivatedRoute,

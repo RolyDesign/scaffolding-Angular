@@ -7,14 +7,12 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { VALIDATION_FORMS } from './employe.const/validation-form.const';
-import { Genderenum } from './employe.enum/gender.enum';
+import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
+import { EployGenderEnum } from './employe.enum/employ-gender.enum';
 import { EmployeModel, IEmployeUpdateDTO } from './employe.model';
 import { EmployService } from './employe.service';
-import {
-  TErrorMessageValidation,
-  TValidator,
-} from './employe.type/error-message-validation.type';
+import { TEmployErrorMessageValidation } from './employe.type/employ-error-message-validation.type';
+import { TEmployValidator } from './employe.type/employ-validator.type';
 
 @Component({
   selector: 'scfld-license-edit',
@@ -22,16 +20,16 @@ import {
   styleUrls: ['./employe-edit.component.scss'],
 })
 export class EmployeEditComponent implements OnInit, OnDestroy {
-  genderOptions = [Genderenum.female, Genderenum.male];
+  genderOptions = [EployGenderEnum.female, EployGenderEnum.male];
   editEmploy!: FormGroup;
   title = 'Edit Employ';
-  validationForms = VALIDATION_FORMS;
+  validationForms = EMPLOY_VALIDATION_FORMS;
   id = Number(this.route.snapshot.paramMap.get('id'));
   sub!: Subscription;
   patternValidator =
     "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
 
-  errorMessage: TErrorMessageValidation = {
+  errorMessage: TEmployErrorMessageValidation = {
     name: '',
     lastName: '',
     age: '',
@@ -56,7 +54,10 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
           res.lastName,
           [Validators.required, Validators.minLength(3)],
         ],
-        age: [res.age, [Validators.required,Validators.min(120), Validators.max(120)]],
+        age: [
+          res.age,
+          [Validators.required, Validators.min(120), Validators.max(120)],
+        ],
         work: [res.work, [Validators.required]],
         roll: [res.roll, [Validators.required]],
         gender: [res.gender, [Validators.required]],
@@ -95,13 +96,13 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
   setMessage(c: AbstractControl | null, key: string): void {
     if (c !== null) {
       if ((c.touched || c.dirty) && c.errors) {
-        this.errorMessage[key as keyof TErrorMessageValidation] = Object.keys(
+        this.errorMessage[key as keyof TEmployErrorMessageValidation] = Object.keys(
           c.errors
         )
-          .map((key) => this.validationForms[key as keyof TValidator])
+          .map((key) => this.validationForms[key as keyof TEmployValidator])
           .join(' ');
       } else {
-        this.errorMessage[key as keyof TErrorMessageValidation] = '';
+        this.errorMessage[key as keyof TEmployErrorMessageValidation] = '';
       }
     }
   }
