@@ -20,7 +20,7 @@
                   [ngClass]="{'d-none': errorMessage.name }">
                 </div>
                 <span class="invalid-feedback">
-                  {{errorMessage.name}}
+                 {{errorMessage.name}}
                 </span>
               </div>
             </div>
@@ -59,14 +59,12 @@
               <div>
                 <input id="work" formControlName="work" class="form-control form-control-sm" type="text"
                   placeholder="Work"
-                  [ngClass]="{'is-invalid': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.work }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid }">
+                  [ngClass]="{'d-none': errorMessage.work }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['work'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
+                 {{errorMessage.work}}
                 </span>
               </div>
             </div>
@@ -75,17 +73,15 @@
             <!------------------------ inputs Roll --------------------------->
             <div>
               <label for="roll" class="form-label">Roll</label>
-              <div class=" mb-2">
+              <div >
                 <input id="roll" formControlName="roll" class="form-control form-control-sm" type="text"
                   placeholder="Roll"
-                  [ngClass]="{'is-invalid': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.roll }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
+                  [ngClass]="{'d-none': errorMessage.roll }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['roll'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
+                 {{errorMessage.roll}}
                 </span>
               </div>
             </div>
@@ -94,47 +90,39 @@
               <label for="gender" class="form-label">Gender</label>
               <select class="form-select form-select-sm mb-2" aria-label="Default select example"
                 formControlName="gender"
-                [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+                [ngClass]="{'is-invalid': errorMessage.gender }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
               </select>
               <div class="spacer"
-                [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
+                [ngClass]="{'d-none': errorMessage.gender }">
               </div>
               <span class="invalid-feedback">
-                <span *ngIf="fm['gender'].errors?.['required']">
-                  {{validationForms.required}}
-                </span>
+               {{errorMessage.gender}}
               </span>
             </div>
             <!------------------------ inputs Email --------------------------->
             <div>
               <label for="email" class="form-label">Email</label>
-              <div class=" mb-2">
+              <div >
                 <input id="email" formControlName="email" class="form-control form-control-sm" type="email"
                   placeholder="Email"
-                  [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                  [ngClass]="{'is-invalid': errorMessage.email }">
                 <div class="spacer"
-                  [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                  [ngClass]="{'d-none': errorMessage.email }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['email'].errors?.['required']">
-                    {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['email'].errors?.['pattern']">
-                    {{validationForms.pattern}}
-                  </span>
+                 {{errorMessage.email}}
                 </span>
               </div>
             </div>
             <!------------------------ inputs Suspended --------------------------->
-            <div class="form-check mb-2">
+            <div class="form-check">
               <input class="form-check-input" type="checkbox" id="suspended" formControlName="suspended">
               <label class="form-check-label" for="suspended">
                 Suspended
               </label>
             </div>
-
           </div>
           <!------------------------ Buttons controls --------------------------->
           <div class="col-md-6"></div>
@@ -145,7 +133,6 @@
               [disabled]="!editEmploy.valid">Add</button>
           </div>
         </div>
-
       </form>
     </div>
   </div>
