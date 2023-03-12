@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
 import { EployGenderEnum } from './employe.enum/employ-gender.enum';
 import { EmployeModel, IEmployeUpdateDTO } from './employe.model';
