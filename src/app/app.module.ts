@@ -13,6 +13,7 @@ import { EmployeCreateComponent } from './components/employe-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeDetailComponent,
     EmployeDeleteComponent,
     EmployeCreateComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+
 
   ],
   providers: [],

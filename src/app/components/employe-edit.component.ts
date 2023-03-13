@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
   Validators,
@@ -9,10 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
 import { EployGenderEnum } from './employe.enum/employ-gender.enum';
-import { EmployeModel, IEmployeUpdateDTO } from './employe.model';
+import { IEmployeUpdateDTO } from './employe.model';
 import { EmployService } from './employe.service';
-import { TEmployErrorMessageValidation } from './employe.type/employ-error-message-validation.type';
-import { TEmployValidator } from './employe.type/employ-validator.type';
 
 @Component({
   selector: 'scfld-license-edit',
@@ -26,20 +23,6 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
   validationForms = EMPLOY_VALIDATION_FORMS;
   id = Number(this.route.snapshot.paramMap.get('id'));
   sub!: Subscription;
-  patternValidator =
-    "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-
-  errorMessage: TEmployErrorMessageValidation = {
-    name: '',
-    lastName: '',
-    age: '',
-    work: '',
-    roll: '',
-    gender: '',
-    email: '',
-  };
-
-  lastValue!: IEmployeUpdateDTO;
   constructor(
     private fb: FormBuilder,
     private employeService: EmployService,
@@ -57,55 +40,30 @@ export class EmployeEditComponent implements OnInit, OnDestroy {
         ],
         age: [
           res.age,
-          [Validators.required, Validators.min(120), Validators.max(120)],
+          [Validators.required, Validators.min(18), Validators.max(120)],
         ],
         work: [res.work, [Validators.required]],
         roll: [res.roll, [Validators.required]],
         gender: [res.gender, [Validators.required]],
         email: [
           res.email,
-          [Validators.pattern(this.patternValidator), Validators.required],
+          [
+            Validators.pattern("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"),
+            Validators.required
+          ],
         ],
-        suspended: [res.suspended],
+        suspended: [res.suspended]
       });
-    });
-
-    const form = this.editEmploy;
-    this.lastValue = form.value;
-
-    form.valueChanges.subscribe((v) => {
-      for (const key in this.lastValue) {
-        if (Object.prototype.hasOwnProperty.call(this.lastValue, key)) {
-          if (v[key] !== this.lastValue[key as keyof IEmployeUpdateDTO]) {
-            this.setMessage(form.get(`${key}`), key);
-          }
-        }
-      }
-      this.lastValue = v;
     });
   }
 
   edit() {
     this.employeService.update(
       this.id,
-      this.editEmploy.getRawValue() as EmployeModel
+      this.editEmploy.getRawValue() as IEmployeUpdateDTO
     );
     this.router.navigate(['/employes']);
   }
-
-  setMessage(c: AbstractControl | null, key: string): void {
-    if (c !== null) {
-      if ((c.touched || c.dirty) && c.errors) {
-        this.errorMessage[key as keyof TEmployErrorMessageValidation] =
-          Object.keys(c.errors)
-            .map((key) => this.validationForms[key as keyof TEmployValidator])
-            .join(' ');
-      } else {
-        this.errorMessage[key as keyof TEmployErrorMessageValidation] = '';
-      }
-    }
-  }
-
   get fm() {
     return this.editEmploy.controls;
   }

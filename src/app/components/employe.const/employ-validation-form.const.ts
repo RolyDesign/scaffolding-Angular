@@ -1,7 +1,4 @@
-import { TEmployValidator } from "../employe.type/employ-validator.type";
-
-
-export const EMPLOY_VALIDATION_FORMS : TEmployValidator = {
+export const EMPLOY_VALIDATION_FORMS  = {
   required: 'The field is required',
   max: 'Exceeds the maximum value allowed',
   min: 'Does not exceed the minimum value allowed',

@@ -4,8 +4,7 @@
       <div class=" mb-4  p-0 d-flex justify-content-between  ">
         <div>
           <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
-          <a class=" text-decoration-none fs-6 text-info " title="Add new device" routerLink="/employes/add">new
-            Employ</a>
+          <a class=" text-decoration-none fs-6 text-info " title="Add new device" routerLink="/employes/add">New</a>
         </div>
       </div>
       <!-- *********************Content***************-->
@@ -36,10 +35,10 @@
                 <td ><a class="text-decoration-none text-info"
                     [routerLink]="['/employes', employe.id]">Detail</a></td>
                 <td ><a class="text-decoration-none text-info"
-                    [routerLink]="['/employes/edit', employe.id]">Edit</a>
+                    [routerLink]="['/employes', employe.id,'edit']">Edit</a>
                 </td>
                 <td><a class="text-decoration-none text-info"
-                    [routerLink]="['/employes/delete', employe.id]">Delete</a>
+                    [routerLink]="['/employes', employe.id,'delete']">Delete</a>
                 </td>
               </tr>
             </ng-container>

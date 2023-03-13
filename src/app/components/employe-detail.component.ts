@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {  Observable} from 'rxjs';
 import { EMPLOY_FONT_ICONS } from './employe.const/employ-font-icons.const';
-import { EmployeModel } from './employe.model';
+import { IEmployeGetDTO } from './employe.model';
 import { EmployService } from './employe.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { EmployService } from './employe.service';
 export class EmployeDetailComponent {
   title = 'Employ Detail';
   id: number;
-  employ$!: Observable<EmployeModel>;
+  employ$!: Observable<IEmployeGetDTO>;
   heads = ['Name', 'Last Name', 'Age', 'Work', 'Roll', 'Gender','Email', 'Suspended'];
   fontIcons = EMPLOY_FONT_ICONS;
   constructor(

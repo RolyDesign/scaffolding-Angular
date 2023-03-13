@@ -24,9 +24,30 @@
           </div>
         </div>
       </div>
-      <div class="mt-4 col-md-4">
-        <button routerLink='/employes' class="btn btn-sm btn-secondary me-5 " style="width: 45%">Cancel</button>
-        <button (click)="delete()" class="btn btn-sm btn-danger" style="width: 45%">Delete</button>
+      <div class="mt-4 col-md-12">
+        <button routerLink='/employes' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button (click)="showModal(true)" class="btn btn-sm btn-danger" style="width: 10%">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- modalConfirm -->
+<ng-container *ngIf="showConfirm" >
+  <div style="background-color:rgba(0, 0, 0, 0.582) ;" class="modal d-block" tabindex="-1">
+    <div class="modal-dialog   modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alert!!</h5>
+          <button (click)="hidenModal(false)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{confirmMessage.delete}}</p>
+        </div>
+        <div class="modal-footer">
+          <button (click)="hidenModal(false)" type="button" class="btn btn-sm btn-secondary w-25" data-bs-dismiss="modal">Close</button>
+          <button (click)="confirmDelete()" type="button" class="btn btn-sm btn-primary  w-25">Save</button>
+        </div>
       </div>
     </div>
   </div>

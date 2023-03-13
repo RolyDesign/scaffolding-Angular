@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeModel, IEmployeCreateDTO } from './employe.model';
+import { IEmployeCreateDTO } from './employe.model';
 import { EmployService } from './employe.service';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
 import { EployGenderEnum } from './employe.enum/employ-gender.enum';
-import { TEmployErrorMessageValidation } from './employe.type/employ-error-message-validation.type';
-import { TEmployValidator } from './employe.type/employ-validator.type';
 
 @Component({
   selector: 'scfld-employe-create',
@@ -19,22 +16,10 @@ import { TEmployValidator } from './employe.type/employ-validator.type';
   styleUrls: ['./employe-create.component.scss'],
 })
 export class EmployeCreateComponent implements OnInit {
+  title = 'Create Employ';
   genderOptions = [EployGenderEnum.female, EployGenderEnum.male];
   addEmploy!: FormGroup;
-  title = 'Create Employ';
   validationForms = EMPLOY_VALIDATION_FORMS;
-  patternValidator =
-    "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-  errorMessage: TEmployErrorMessageValidation = {
-    name: '',
-    lastName: '',
-    age: '',
-    work: '',
-    roll: '',
-    gender: '',
-    email: '',
-  };
-  lastValue!: IEmployeCreateDTO;
 
   constructor(
     private fb: FormBuilder,
@@ -52,41 +37,20 @@ export class EmployeCreateComponent implements OnInit {
       gender: ['', [Validators.required]],
       email: [
         '',
-        [Validators.pattern(this.patternValidator), Validators.required],
+        [
+          Validators.pattern(
+            "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+          ),
+          Validators.required,
+        ],
       ],
       suspended: [false],
-    });
-    const form = this.addEmploy;
-    this.lastValue = form.value;
-
-    this.addEmploy.valueChanges.subscribe((v) => {
-      for (const key in this.lastValue) {
-        if (Object.prototype.hasOwnProperty.call(this.lastValue, key)) {
-          if (v[key] !== this.lastValue[key as keyof IEmployeCreateDTO]) {
-            this.setMessage(form.get(`${key}`), key);
-          }
-        }
-      }
-      this.lastValue = v;
     });
   }
 
   add() {
-    this.employeService.create(this.addEmploy.getRawValue() as EmployeModel);
+    this.employeService.create(this.addEmploy.getRawValue() as IEmployeCreateDTO);
     this.router.navigate(['/employes']);
-  }
-
-  setMessage(c: AbstractControl | null, key: string): void {
-    if (c !== null) {
-      if ((c.touched || c.dirty) && c.errors) {
-        this.errorMessage[key as keyof TEmployErrorMessageValidation] =
-          Object.keys(c.errors)
-            .map((key) => this.validationForms[key as keyof TEmployValidator])
-            .join(' ');
-      } else {
-        this.errorMessage[key as keyof TEmployErrorMessageValidation] = '';
-      }
-    }
   }
 
   get fm() {
