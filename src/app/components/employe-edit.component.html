@@ -20,12 +20,12 @@
                   [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['name']?.hasError('required')">
+                  <em class="d-block" *ngIf="fm['name']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['name']?.hasError('minlength')">
+                  </em>
+                  <em class="d-block" *ngIf="fm['name']?.hasError('minlength')">
                     {{validationForms.minlength}}
-                  </span>
+                  </em>
 
                 </span>
               </div>
@@ -41,12 +41,12 @@
                   [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['lastName']?.hasError('required')">
+                  <em class="d-block" *ngIf="fm['lastName']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['lastName']?.hasError('minlength')">
+                  </em>
+                  <em class="d-block" *ngIf="fm['lastName']?.hasError('minlength')">
                     {{validationForms.minlength}}
-                  </span>
+                  </em>
                 </span>
               </div>
             </div>
@@ -60,15 +60,15 @@
                 <div class="spacer" [ngClass]="{'d-none': (fm['age'].touched || fm['age'].dirty) && !fm['age'].valid }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['age']?.hasError('required')">
+                  <em class="d-block" *ngIf="fm['age']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['age']?.hasError('min')">
+                  </em>
+                  <em class="d-block" *ngIf="fm['age']?.hasError('min')">
                     {{validationForms.min}}
-                  </span>
-                  <span *ngIf="fm['age']?.hasError('max')">
+                  </em>
+                  <em class="d-block" *ngIf="fm['age']?.hasError('max')">
                     {{validationForms.max}}
-                  </span>
+                  </em>
                 </span>
               </div>
             </div>
@@ -83,9 +83,9 @@
                   [ngClass]="{'d-none': (fm['work'].touched || fm['work'].dirty) && !fm['work'].valid  }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['work']?.hasError('required')">
+                  <em class="d-block" *ngIf="fm['work']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
+                  </em>
                 </span>
               </div>
             </div>
@@ -102,16 +102,16 @@
                   [ngClass]="{'d-none': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="fm['roll']?.hasError('required')">
+                  <em class="d-block" *ngIf="fm['roll']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
+                  </em>
                 </span>
               </div>
             </div>
             <!------------------------ inputs Gender --------------------------->
             <div>
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select form-select-sm mb-2" aria-label="Default select example"
+              <select class="form-select form-select-sm" aria-label="Default select example"
                 formControlName="gender"
                 [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
                 <option disabled selected value="">Select Gender</option>
@@ -121,9 +121,9 @@
                 [ngClass]="{'d-none': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
               </div>
               <span class="invalid-feedback">
-                <span *ngIf="fm['gender']?.hasError('required')">
+                <em class="d-block" *ngIf="fm['gender']?.hasError('required')">
                   {{validationForms.required}}
-                </span>
+                </em>
               </span>
             </div>
             <!------------------------ inputs Email --------------------------->
@@ -136,22 +136,22 @@
                 <div class="spacer"
                   [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
                 </div>
-                <span class="invalid-feedback">
-                  <span *ngIf="fm['email']?.hasError('required')">
+                <div class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['email']?.hasError('required')">
                     {{validationForms.required}}
-                  </span>
-                  <span *ngIf="fm['email']?.hasError('pattern')">
+                  </em>
+                  <em class="d-block" *ngIf="fm['email']?.hasError('pattern')">
                     {{validationForms.pattern}}
-                  </span>
-                </span>
+                  </em>
+                </div>
               </div>
             </div>
             <!------------------------ inputs Suspended --------------------------->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="suspended" formControlName="suspended">
-              <label class="form-check-label" for="suspended">
+            <div >
+              <label class="form-label" for="suspended">
                 Suspended
               </label>
+              <input class="form-check-input d-block" type="checkbox" id="suspended" formControlName="suspended">
             </div>
           </div>
           <!------------------------ Buttons controls --------------------------->
