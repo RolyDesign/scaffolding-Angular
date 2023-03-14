@@ -78,31 +78,8 @@ export const myModel: myModel = {
   modelName: 'Employes',
   properties: [
     {
-      propertyName: 'id',
-      viewName: 'Id',
-      type: DataTypeEnumn.number,
-      viewType: null,
-      validators: null,
-      valueValidators: null,
-    },
-    {
       propertyName: 'name',
       viewName: 'Name',
-      type: DataTypeEnumn.string,
-      viewType: {
-        element: ElementEnum.Input,
-        elementType: ElementTypeEnum.Text,
-      },
-      validators: [
-        ValidatorEnum.minlength,
-        ValidatorEnum.maxlength,
-        ValidatorEnum.required,
-      ],
-      valueValidators: [3, 20, null],
-    },
-    {
-      propertyName: 'lastName',
-      viewName: 'Last Name',
       type: DataTypeEnumn.string,
       viewType: {
         element: ElementEnum.Input,
@@ -121,7 +98,7 @@ export const myModel: myModel = {
       type: DataTypeEnumn.customEnum,
       viewType: {
         element: ElementEnum.Select,
-        options: [null, 'opt1', 'opt2', 'opt3'],
+        options: ['male', 'female'],
       },
       validators: [ValidatorEnum.required],
       valueValidators: [null],
