@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {  Observable} from 'rxjs';
 import { EMPLOY_FONT_ICONS } from './employe.const/employ-font-icons.const';
+
 import { IEmployeGetDTO } from './employe.model';
 import { EmployService } from './employe.service';
 

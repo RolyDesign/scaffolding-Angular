@@ -6,7 +6,7 @@
   </div>
   <div class="row ">
     <div class="col-md-6">
-      <form [formGroup]="addEmploy" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
+      <form [formGroup]="editEmploy" (ngSubmit)="edit()" class="form-group" novalidate autocomplete="off">
         <div class="row">
           <div class="col-md-6">
             <!------------------------ inputs name --------------------------->
@@ -26,7 +26,6 @@
                   <em class="d-block" *ngIf="fm['name']?.hasError('minlength')">
                     {{validationForms.minlength}}
                   </em>
-
                 </span>
               </div>
             </div>
@@ -94,7 +93,7 @@
             <!------------------------ inputs Roll --------------------------->
             <div>
               <label for="roll" class="form-label">Roll</label>
-              <div >
+              <div>
                 <input id="roll" formControlName="roll" class="form-control form-control-sm" type="text"
                   placeholder="Roll"
                   [ngClass]="{'is-invalid': (fm['roll'].touched || fm['roll'].dirty) && !fm['roll'].valid }">
@@ -111,8 +110,7 @@
             <!------------------------ inputs Gender --------------------------->
             <div>
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select form-select-sm" aria-label="Default select example"
-                formControlName="gender"
+              <select class="form-select form-select-sm" aria-label="Default select example" formControlName="gender"
                 [ngClass]="{'is-invalid': (fm['gender'].touched || fm['gender'].dirty) && !fm['gender'].valid }">
                 <option disabled selected value="">Select Gender</option>
                 <option *ngFor="let opt of genderOptions" [value]="opt">{{opt}}</option>
@@ -129,7 +127,7 @@
             <!------------------------ inputs Email --------------------------->
             <div>
               <label for="email" class="form-label">Email</label>
-              <div >
+              <div>
                 <input id="email" formControlName="email" class="form-control form-control-sm" type="email"
                   placeholder="Email"
                   [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
@@ -141,13 +139,13 @@
                     {{validationForms.required}}
                   </em>
                   <em class="d-block" *ngIf="fm['email']?.hasError('pattern')">
-                    {{validationForms.pattern}}
+                    {{validationForms.email}}
                   </em>
                 </div>
               </div>
             </div>
             <!------------------------ inputs Suspended --------------------------->
-            <div >
+            <div>
               <label class="form-label" for="suspended">
                 Suspended
               </label>
@@ -160,7 +158,7 @@
             <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
               routerLink='/employes'>Cancel</button>
             <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
-              [disabled]="!addEmploy.valid">Add</button>
+              [disabled]="!editEmploy.valid">Save</button>
           </div>
         </div>
       </form>

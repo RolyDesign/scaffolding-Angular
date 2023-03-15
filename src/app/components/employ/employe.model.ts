@@ -1,5 +1,6 @@
 import { EployGenderEnum } from "./employe.enum/employ-gender.enum"
 
+
 export interface IEmployeCreateDTO{
   id:number,
   name:string,

@@ -4,5 +4,5 @@ export const EMPLOY_VALIDATION_FORMS  = {
   min: "Doesn't exceed the minimum value allowed",
   maxlength:"Exceeds the maximum character allowed",
   minlength:"Doesn't exceed the minimum characters allowed",
-  pattern:"It's not an email"
+  email:"It's not an email"
 };

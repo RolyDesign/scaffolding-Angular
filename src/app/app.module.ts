@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeListComponent } from './components/employe-list.component';
-import { EmployeEditComponent } from './components/employe-edit.component';
-import { EmployeDetailComponent } from './components/employe-detail.component';
-import { EmployeDeleteComponent } from './components/employe-delete.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import { EmployeCreateComponent } from './components/employe-create.component';
+import { EmployeCreateComponent } from './components/employ/employe-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
+import { EmployeListComponent } from './components/employ/employe-list.component';
+import { EmployeEditComponent } from './components/employ/employe-edit.component';
+import { EmployeDetailComponent } from './components/employ/employe-detail.component';
+import { EmployeDeleteComponent } from './components/employ/employe-delete.component';
 
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeDetailComponent,
     EmployeDeleteComponent,
     EmployeCreateComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ConfirmComponent
 
 
   ],

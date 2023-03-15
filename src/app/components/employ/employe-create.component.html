@@ -6,7 +6,7 @@
   </div>
   <div class="row ">
     <div class="col-md-6">
-      <form [formGroup]="editEmploy" (ngSubmit)="edit()" class="form-group" novalidate autocomplete="off">
+      <form [formGroup]="addEmploy" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
         <div class="row">
           <div class="col-md-6">
             <!------------------------ inputs name --------------------------->
@@ -141,7 +141,7 @@
                     {{validationForms.required}}
                   </em>
                   <em class="d-block" *ngIf="fm['email']?.hasError('pattern')">
-                    {{validationForms.pattern}}
+                    {{validationForms.email}}
                   </em>
                 </div>
               </div>
@@ -160,7 +160,7 @@
             <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
               routerLink='/employes'>Cancel</button>
             <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
-              [disabled]="!editEmploy.valid">Save</button>
+              [disabled]="!addEmploy.valid">Add</button>
           </div>
         </div>
       </form>

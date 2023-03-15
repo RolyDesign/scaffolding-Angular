@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeCreateComponent } from './components/employe-create.component';
-import { EmployeDeleteComponent } from './components/employe-delete.component';
-import { EmployeDetailComponent } from './components/employe-detail.component';
-import { EmployeEditComponent } from './components/employe-edit.component';
-import { EmployeListComponent } from './components/employe-list.component';
+import { EmployeCreateComponent } from './components/employ/employe-create.component';
+import { EmployeDeleteComponent } from './components/employ/employe-delete.component';
+import { EmployeDetailComponent } from './components/employ/employe-detail.component';
+import { EmployeEditComponent } from './components/employ/employe-edit.component';
+import { EmployeListComponent } from './components/employ/employe-list.component';
+
 
 const routes: Routes = [
   {

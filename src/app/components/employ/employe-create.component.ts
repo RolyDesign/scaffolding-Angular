@@ -5,10 +5,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IEmployeCreateDTO } from './employe.model';
-import { EmployService } from './employe.service';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
 import { EployGenderEnum } from './employe.enum/employ-gender.enum';
+import { IEmployeCreateDTO } from './employe.model';
+
+
+import { EmployService } from './employe.service';
 
 @Component({
   selector: 'scfld-employe-create',
