@@ -37,13 +37,8 @@ export class EmployeDeleteComponent {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.employ$ = this.employeService.getById(this.id);
   }
-  hidenModal(v: boolean) {
-    this.showConfirm = v;
-  }
-  showModal(v: boolean) {
-    this.showConfirm = v;
-  }
-  confirmDelete() {
+
+  deleteEmploy() {
     this.employeService.delete(this.id);
     this.router.navigate(['/employes']);
   }

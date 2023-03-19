@@ -26,11 +26,11 @@
       </div>
       <div class="mt-4 col-md-12">
         <button routerLink='/employes' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
-        <button (click)="showModal(true)" class="btn btn-sm btn-danger" style="width: 10%">Delete</button>
+        <button class="btn btn-sm btn-danger" style="width: 10%" data-bs-toggle="modal" data-bs-target="#confirmModal">Delete</button>
       </div>
     </div>
   </div>
 </ng-container>
 
  <!-- modalConfirm -->
-<scfld-confirm (action)="$event" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>
+<scfld-confirm (action)="deleteEmploy()" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>
