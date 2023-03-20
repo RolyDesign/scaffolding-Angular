@@ -1,0 +1,23 @@
+<div class=" rg-nav-container d-flex position-relative" [ngClass]="{'hidde': !showNav}">
+  <fa-icon (click)="show(false)" class="toogle-menu" [icon]="buttonToggle"></fa-icon>
+  <nav class="rg-nav ">
+    <div class="rg-nav__content">
+      <div class="p-4 border-bottom">
+        <div class="d-flex justify-content-center">
+          <img class="avatar" src="../../../assets/personDefault.jpg" alt="User image">
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <span class="text-white">Name User Here</span>
+          <span class="text-white">Descriptions</span>
+        </div>
+      </div>
+      <div class="rg-nav__content-links p-3 ">
+        <div (click)="setCurrentLink(link.title)" [ngClass]="{'activeNav': currentLink == link.title}" class="rg-nav__content-links-link p-1"  *ngFor="let link of listLink">
+          <fa-icon [icon]="link.icon"></fa-icon>
+          <a  [routerLink]="[link.link]"  >{{link.title}}</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<fa-icon [ngClass]="{'d-block':!showNav}" (click)="show(true)" class="toogle-outside-menu" [icon]="buttonToggle"></fa-icon>

@@ -12,6 +12,7 @@ import { EmployeListComponent } from './components/employ/employe-list.component
 import { EmployeEditComponent } from './components/employ/employe-edit.component';
 import { EmployeDetailComponent } from './components/employ/employe-detail.component';
 import { EmployeDeleteComponent } from './components/employ/employe-delete.component';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 
 
@@ -31,7 +32,8 @@ import { EmployeDeleteComponent } from './components/employ/employe-delete.compo
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ConfirmComponent
+    ConfirmComponent,
+    SidenavComponent
 
 
   ],

@@ -1,0 +1,91 @@
+$bg-active: rgba(255, 255, 255, 0.696);
+$bg-hover:rgba(255, 255, 255, 0.175);
+
+.rg-nav-container{
+  margin-left: 0px;
+  transition: all .3s ease-in-out;
+  .toogle-menu{
+    position: absolute;
+    top:0.5rem;
+    right:1rem;
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+  .rg-nav{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,56,1) 48%, rgba(30,16,107,1) 100%);
+    min-height: 100vh;
+    width: 230px;
+    .avatar{
+      object-fit: cover;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    &__content-links{
+      display: flex;
+      flex-direction: column;
+      &-link{
+        fa-icon{
+          color: white;
+        }
+        a{
+          margin:0 0.8rem;
+          text-decoration: none;
+          color: white;
+         }
+        &:hover{
+          transition: all 0.3s ease-out;
+          background-color:  $bg-hover;
+        }
+        &:active{
+          background-color:  $bg-active;
+          color:rgb(14, 20, 69);
+          fa-icon{
+            color:rgb(14, 20, 69);
+          }
+          a{
+            color:rgb(14, 20, 69);
+          }
+        }
+      }
+    }
+  }
+}
+
+.toogle-outside-menu{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: black;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.hidde{
+  margin-left: -250px;
+}
+
+.activeNav{
+  background-color:  $bg-active;
+  color:rgb(14, 20, 69);
+  fa-icon{
+    color:rgb(14, 20, 69)!important;
+  }
+  a{
+    color: rgb(14, 20, 69) !important;
+  }
+  &:hover{
+    background-color:  $bg-active!important;
+    color:rgb(14, 20, 69)!important;
+    fa-icon{
+      color:rgb(14, 20, 69)!important;
+    }
+    a{
+      color: rgb(14, 20, 69) !important;
+    }
+  }
+}
+
