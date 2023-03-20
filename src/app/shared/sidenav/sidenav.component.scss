@@ -1,4 +1,4 @@
-$bg-active: rgba(255, 255, 255, 0.696);
+$bg-active: rgba(255, 255, 255, 0.786);
 $bg-hover:rgba(255, 255, 255, 0.175);
 
 .rg-nav-container{
@@ -11,6 +11,7 @@ $bg-hover:rgba(255, 255, 255, 0.175);
     color: white;
     font-size: 1.5rem;
     margin-left: 1rem;
+    cursor: pointer;
   }
   .rg-nav{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,56,1) 48%, rgba(30,16,107,1) 100%);
@@ -27,11 +28,12 @@ $bg-hover:rgba(255, 255, 255, 0.175);
     &__content-links{
       display: flex;
       flex-direction: column;
+      cursor: pointer;
       &-link{
         fa-icon{
           color: white;
         }
-        a{
+        span{
           margin:0 0.8rem;
           text-decoration: none;
           color: white;
@@ -46,7 +48,7 @@ $bg-hover:rgba(255, 255, 255, 0.175);
           fa-icon{
             color:rgb(14, 20, 69);
           }
-          a{
+          span{
             color:rgb(14, 20, 69);
           }
         }
@@ -74,7 +76,7 @@ $bg-hover:rgba(255, 255, 255, 0.175);
   fa-icon{
     color:rgb(14, 20, 69)!important;
   }
-  a{
+  span{
     color: rgb(14, 20, 69) !important;
   }
   &:hover{
@@ -83,7 +85,7 @@ $bg-hover:rgba(255, 255, 255, 0.175);
     fa-icon{
       color:rgb(14, 20, 69)!important;
     }
-    a{
+    span{
       color: rgb(14, 20, 69) !important;
     }
   }

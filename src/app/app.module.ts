@@ -13,6 +13,7 @@ import { EmployeEditComponent } from './components/employ/employe-edit.component
 import { EmployeDetailComponent } from './components/employ/employe-detail.component';
 import { EmployeDeleteComponent } from './components/employ/employe-delete.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -24,6 +25,7 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
     EmployeDetailComponent,
     EmployeDeleteComponent,
     EmployeCreateComponent,
+    HomeComponent,
 
   ],
   imports: [

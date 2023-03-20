@@ -28,7 +28,7 @@ export const NAV_LINKS: INavLinkModel[] = [
     link: '/'
   },
   {
-    title: 'Employ',
+    title: 'Employes',
     icon: EMPLOY_FONT_ICONS.faEmpoy,
     link: '/employes'
   },

@@ -11,12 +11,12 @@
           <span class="text-white">Descriptions</span>
         </div>
       </div>
-      <div class="rg-nav__content-links p-3 ">
-        <div (click)="setCurrentLink(link.title)" [ngClass]="{'activeNav': currentLink == link.title}" class="rg-nav__content-links-link p-1"  *ngFor="let link of listLink">
+      <ul class="rg-nav__content-links p-3 list-unstyled ">
+        <li [routerLink]="[link.link]"   (click)="setCurrentLink(link.title)" [ngClass]="{'activeNav': currentLink == link.title}" class="rg-nav__content-links-link p-1"  *ngFor="let link of listLink">
           <fa-icon [icon]="link.icon"></fa-icon>
-          <a  [routerLink]="[link.link]"  >{{link.title}}</a>
-        </div>
-      </div>
+          <span >{{link.title}}</span>
+        </li>
+      </ul>
     </div>
   </nav>
 </div>

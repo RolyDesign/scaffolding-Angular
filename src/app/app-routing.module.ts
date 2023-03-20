@@ -5,13 +5,18 @@ import { EmployeDeleteComponent } from './components/employ/employe-delete.compo
 import { EmployeDetailComponent } from './components/employ/employe-detail.component';
 import { EmployeEditComponent } from './components/employ/employe-edit.component';
 import { EmployeListComponent } from './components/employ/employe-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   {
     path:"",
-    redirectTo:'/employes',
+    redirectTo:'/home',
     pathMatch: 'full'
+  },
+  {
+    path:"home",
+    component:HomeComponent
   },
   {
     path:"employes",
