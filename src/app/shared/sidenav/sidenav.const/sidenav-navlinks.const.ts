@@ -41,5 +41,126 @@ export const NAV_LINKS: INavLinkModel[] = [
     title: 'Price',
     icon: EMPLOY_FONT_ICONS.faPrice,
     link: '/'
-  }
+  },
+
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Pdfgdfdfgrice',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Pdfgdfdfgrice',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
+  {
+    title: 'Price',
+    icon: EMPLOY_FONT_ICONS.faPrice,
+    link: '/'
+  },
 ]

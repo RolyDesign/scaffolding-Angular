@@ -1,5 +1,9 @@
 $bg-active: rgba(255, 255, 255, 0.786);
 $bg-hover:rgba(255, 255, 255, 0.175);
+$color-text-hover:white;
+$color-text-active:rgb(14, 20, 69);
+$gradient-nav: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,54,1) 50%, rgba(24,15,74,1) 100%);
+$color-text:white;
 
 .rg-nav-container{
   margin-left: 0px;
@@ -8,30 +12,40 @@ $bg-hover:rgba(255, 255, 255, 0.175);
     position: absolute;
     top:0.5rem;
     right:1rem;
-    color: white;
+    color: $color-text;
     font-size: 1.5rem;
     margin-left: 1rem;
     cursor: pointer;
   }
   .rg-nav{
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,56,1) 48%, rgba(30,16,107,1) 100%);
-    min-height: 100vh;
+    background: $gradient-nav;
+    max-height: 100vh;
     width: 230px;
-    .avatar{
-      object-fit: cover;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 0.5rem;
-      text-align: center;
+    .head-menu{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height:10rem;
+      margin: 1rem 0;
+      .avatar{
+        object-fit: cover;
+        height:5rem;
+        width: 5rem;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
     }
     &__content-links{
       display: flex;
       flex-direction: column;
+      height: calc(100vh - 12rem);
+      overflow-y: auto;
       cursor: pointer;
       &-link{
         fa-icon{
-          color: white;
+          color: $color-text
         }
         span{
           margin:0 0.8rem;
@@ -46,12 +60,13 @@ $bg-hover:rgba(255, 255, 255, 0.175);
           background-color:  $bg-active;
           color:rgb(14, 20, 69);
           fa-icon{
-            color:rgb(14, 20, 69);
+            color:$color-text-active
           }
           span{
-            color:rgb(14, 20, 69);
+            color:$color-text-active
           }
         }
+
       }
     }
   }
@@ -90,4 +105,22 @@ $bg-hover:rgba(255, 255, 255, 0.175);
     }
   }
 }
+
+/* styles scroll */
+
+.rg-nav__content-links::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.rg-nav__content-links::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.rg-nav__content-links::-webkit-scrollbar-thumb {
+  background-color: rgb(86, 95, 164);
+  border-radius: 2rem;
+  outline: 1px solid rgba(255, 255, 255, 0.704);
+}
+
+
 
