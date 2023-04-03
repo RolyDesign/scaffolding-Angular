@@ -1,0 +1,179 @@
+{
+    "Name": "Prueva2",
+    "PluralName": "Prueva2s",
+    "Fields": [
+        {
+            "Name": "id",
+            "DisplayName": "Id",
+            "Type": "number",
+            "DisplayType": {
+                "Element": "",
+                "ElementType": "",
+                "OptionsSelected": []
+            },
+            "Validators": null,
+            "ValueValidators": null
+        },
+        {
+            "Name": "name",
+            "DisplayName": "Name",
+            "Type": "string",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "text",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required",
+                "minLength"
+            ],
+            "ValueValidators": [
+                "none",
+                "5"
+            ]
+        },
+        {
+            "Name": "lastName",
+            "DisplayName": "Last Name",
+            "Type": "string",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "text",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required",
+                "minLength"
+            ],
+            "ValueValidators": [
+                "none",
+                "5"
+            ]
+        },
+        {
+            "Name": "age",
+            "DisplayName": "Age",
+            "Type": "number",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "number",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required",
+                "min",
+                "max"
+            ],
+            "ValueValidators": [
+                "none",
+                "5",
+                "120"
+            ]
+        },
+        {
+            "Name": "work",
+            "DisplayName": "Work",
+            "Type": "string",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "text",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required"
+            ],
+            "ValueValidators": [
+                "none"
+            ]
+        },
+        {
+            "Name": "roll",
+            "DisplayName": "Roll",
+            "Type": "string",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "text",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required"
+            ],
+            "ValueValidators": [
+                "none"
+            ]
+        },
+        {
+            "Name": "gender",
+            "DisplayName": "Gender",
+            "Type": "customType",
+            "DisplayType": {
+                "Element": "select",
+                "ElementType": "",
+                "OptionsSelected": [
+                    "Mele",
+                    "Female"
+                ]
+            },
+            "Validators": [
+                "required"
+            ],
+            "ValueValidators": [
+                "none"
+            ]
+        },
+        {
+            "Name": "option",
+            "DisplayName": "Option",
+            "Type": "customType",
+            "DisplayType": {
+                "Element": "select",
+                "ElementType": "",
+                "OptionsSelected": [
+                    "opt1",
+                    "opt2",
+                    "opt3",
+                    "opt4",
+                    "opt5"
+                ]
+            },
+            "Validators": [
+                "required"
+            ],
+            "ValueValidators": [
+                "none"
+            ]
+        },
+        {
+            "Name": "email",
+            "DisplayName": "Email",
+            "Type": "string",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "email",
+                "OptionsSelected": []
+            },
+            "Validators": [
+                "required",
+                "pattern",
+                "email"
+            ],
+            "ValueValidators": [
+                "none",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                "none"
+            ]
+        },
+        {
+            "Name": "suspended",
+            "DisplayName": "Suspended",
+            "Type": "boolean",
+            "DisplayType": {
+                "Element": "input",
+                "ElementType": "checkbox",
+                "OptionsSelected": []
+            },
+            "Validators": null,
+            "ValueValidators": null
+        }
+    ]
+}

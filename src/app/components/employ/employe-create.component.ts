@@ -5,8 +5,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EMPLOY_GENDER_ENUM } from './employ.enums';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
-import { EployGenderEnum } from './employe.enum/employ-gender.enum';
+
 import { IEmployeCreateDTO } from './employe.model';
 
 
@@ -19,7 +20,7 @@ import { EmployService } from './employe.service';
 })
 export class EmployeCreateComponent implements OnInit {
   title = 'Create Employ';
-  genderOptions = [EployGenderEnum.female, EployGenderEnum.male];
+  genderOptions = [EMPLOY_GENDER_ENUM.female, EMPLOY_GENDER_ENUM.male];
   addEmploy!: FormGroup;
   validationForms = EMPLOY_VALIDATION_FORMS;
 

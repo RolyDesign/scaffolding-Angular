@@ -1,0 +1,45 @@
+<ng-container *ngIf="prueva1$ | async as Prueva1 ">
+ <div class="container-fluid ">
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="row p-0 ">
+        <div class="col-md-1">
+          <div class="fw-bold mb-2" *ngFor="let head of heads">{{head}}</div>
+        </div>
+        <div class="col-md-11">
+ 
+          <div class="mb-2">{{Prueva1.name}}</div>
+ 
+          <div class="mb-2">{{Prueva1.lastName}}</div>
+ 
+          <div class="mb-2">{{Prueva1.age}}</div>
+ 
+          <div class="mb-2">{{Prueva1.work}}</div>
+ 
+          <div class="mb-2">{{Prueva1.roll}}</div>
+ 
+          <div class="mb-2">{{Prueva1.gender}}</div>
+ 
+          <div class="mb-2">{{Prueva1.option}}</div>
+ 
+          <div class="mb-2">{{Prueva1.email}}</div>
+          <div>
+            <fa-icon *ngIf="Prueva1.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
+            <fa-icon *ngIf="!Prueva1.suspended" [icon]="fontIcons.faSquare"></fa-icon>
+          </div>
+            
+        </div>
+      </div>
+      <div class="mt-4 col-md-12">
+        <button routerLink='/prueva1s' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button class="btn btn-sm btn-danger" style="width: 10%" data-bs-toggle="modal" data-bs-target="#confirmModal">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- modalConfirm -->
+<scfld-confirm (action)="deletePrueva1()" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>

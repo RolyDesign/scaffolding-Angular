@@ -1,0 +1,57 @@
+<ng-container *ngIf="listPrueva1s$ | async as listPrueva1s ">
+  <div class="container-fluid">
+    <div class="py-4">
+      <div class=" mb-4  p-0 d-flex justify-content-between  ">
+        <div>
+          <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+          <a class=" text-decoration-none fs-6 text-info " title="Add new Prueva1" routerLink="/prueva1s/add">New</a>
+        </div>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="table-responsive" *ngIf="listPrueva1s.length !== 0; else alertEmpty">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th *ngFor="let head of headsTable ">{{head | uppercase}}</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <ng-container *ngFor="let prueva1 of listPrueva1s">
+              <tr>
+                <td>{{prueva1.name}}</td>           
+                <td>{{prueva1.lastName}}</td>           
+                <td>{{prueva1.age}}</td>           
+                <td>{{prueva1.work}}</td>           
+                <td>{{prueva1.roll}}</td>           
+                <td>{{prueva1.gender}}</td>           
+                <td>{{prueva1.option}}</td>           
+                <td>{{prueva1.email}}</td>           
+                <td>
+                    <fa-icon *ngIf="prueva1.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
+                    <fa-icon *ngIf="!prueva1.suspended" [icon]="fontIcons.faSquare"></fa-icon>
+                </td>
+  
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/prueva1s', prueva1.id]">Detail</a></td>
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/prueva1s', prueva1.id,'edit']">Edit</a>
+                </td>
+                <td><a class="text-decoration-none text-info"
+                    [routerLink]="['/prueva1s', prueva1.id,'delete']">Delete</a>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #alertEmpty>
+  <div class="alert alert-warning text-center" role="alert">
+    Empty
+  </div>
+</ng-template>

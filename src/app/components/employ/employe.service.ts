@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
-import { EployGenderEnum } from './employe.enum/employ-gender.enum';
+import { EMPLOY_GENDER_ENUM } from './employ.enums';
+
 import { IEmployeCreateDTO, IEmployeGetDTO, IEmployeUpdateDTO } from './employe.model';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class EmployService {
       id: 1,
       name: 'Rolando',
       lastName: 'Gonzalez',
-      gender: EployGenderEnum.male,
+      gender: EMPLOY_GENDER_ENUM.male,
       age: 33,
       email: 'rgonz@gmail.com',
       roll: 'Admin',

@@ -127,6 +127,34 @@
               </span>
             </div>
             <!------------------------ inputs Email --------------------------->
+
+
+
+            <div>
+              <label for="email" class="form-label">Email</label>
+              <div >
+                <textarea style="resize: none;" id="email" formControlName="email" class="form-control form-control-sm" rows="3"
+                  placeholder="Email"
+                  [ngClass]="{'is-invalid': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                </textarea>
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['email'].touched || fm['email'].dirty) && !fm['email'].valid }">
+                </div>
+                <div class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['email']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['email']?.hasError('pattern')">
+                    {{validationForms.email}}
+                  </em>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
             <div>
               <label for="email" class="form-label">Email</label>
               <div >

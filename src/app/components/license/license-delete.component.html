@@ -1,0 +1,45 @@
+<ng-container *ngIf="license$ | async as License ">
+ <div class="container-fluid ">
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="row p-0 ">
+        <div class="col-md-1">
+          <div class="fw-bold mb-2" *ngFor="let head of heads">{{head}}</div>
+        </div>
+        <div class="col-md-11">
+ 
+          <div class="mb-2">{{License.name}}</div>
+ 
+          <div class="mb-2">{{License.lastName}}</div>
+ 
+          <div class="mb-2">{{License.age}}</div>
+ 
+          <div class="mb-2">{{License.work}}</div>
+ 
+          <div class="mb-2">{{License.roll}}</div>
+ 
+          <div class="mb-2">{{License.gender}}</div>
+ 
+          <div class="mb-2">{{License.option}}</div>
+ 
+          <div class="mb-2">{{License.email}}</div>
+          <div>
+            <fa-icon *ngIf="License.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
+            <fa-icon *ngIf="!License.suspended" [icon]="fontIcons.faSquare"></fa-icon>
+          </div>
+            
+        </div>
+      </div>
+      <div class="mt-4 col-md-12">
+        <button routerLink='/licenses' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button class="btn btn-sm btn-danger" style="width: 10%" data-bs-toggle="modal" data-bs-target="#confirmModal">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- modalConfirm -->
+<scfld-confirm (action)="deleteLicense()" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>

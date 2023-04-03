@@ -12,12 +12,42 @@
         </div>
       </div>
       <ul class="rg-nav__content-links list-unstyled  border-top  py-3  ">
-        <li  [routerLink]="[link.link]"   (click)="setCurrentLink(link.title)" [ngClass]="{'activeNav': currentLink == link.title}" class="rg-nav__content-links-link py-2 px-3 "  *ngFor="let link of listLink">
-          <fa-icon [icon]="link.icon"></fa-icon>
-          <span >{{link.title}}</span>
-        </li>
+        <ng-container *ngFor="let link of listLink">
+         <ng-container [ngSwitch]="link.isDropdow">
+
+          <li
+          *ngSwitchCase="false"
+          [routerLink]="[link.link]"
+          (click)="setCurrentLink(link.title)"
+          [ngClass]="{'activeNav': currentLink == link.title}"
+          class="rg-nav__content-links-link py-2 px-3 ">
+            <fa-icon [icon]="link.icon"></fa-icon>
+            <span >{{link.title}}</span>
+          </li>
+
+          <li
+          *ngSwitchDefault
+          class="nav-item dropdown  py-2 px-3 rg-nav__content-links-link">
+            <div class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <fa-icon class="text-white " [icon]="link.icon"></fa-icon>
+              <span class=" text-white" href="#">
+                {{link.title}}
+              </span>
+            </div>
+            <ul class="dropdown-menu ">
+              <li class="text-white"><a class="dropdown-item " href="#">Action</a></li>
+              <li><a class="dropdown-item " href="#">Another action</a></li>
+            </ul>
+          </li>
+         </ng-container>
+        </ng-container>
+
       </ul>
     </div>
   </nav>
 </div>
 <fa-icon [ngClass]="{'d-block':!showNav}" (click)="show(true)" class="toogle-outside-menu" [icon]="buttonToggle"></fa-icon>
+
+
+
+

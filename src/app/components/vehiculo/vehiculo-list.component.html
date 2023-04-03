@@ -1,0 +1,57 @@
+<ng-container *ngIf="listVehiculos$ | async as listVehiculos ">
+  <div class="container-fluid">
+    <div class="py-4">
+      <div class=" mb-4  p-0 d-flex justify-content-between  ">
+        <div>
+          <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+          <a class=" text-decoration-none fs-6 text-info " title="Add new Vehiculo" routerLink="/vehiculos/add">New</a>
+        </div>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="table-responsive" *ngIf="listVehiculos.length !== 0; else alertEmpty">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th *ngFor="let head of headsTable ">{{head | uppercase}}</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <ng-container *ngFor="let vehiculo of listVehiculos">
+              <tr>
+                <td>{{vehiculo.name}}</td>           
+                <td>{{vehiculo.lastName}}</td>           
+                <td>{{vehiculo.age}}</td>           
+                <td>{{vehiculo.work}}</td>           
+                <td>{{vehiculo.roll}}</td>           
+                <td>{{vehiculo.gender}}</td>           
+                <td>{{vehiculo.option}}</td>           
+                <td>{{vehiculo.email}}</td>           
+                <td>
+                    <fa-icon *ngIf="vehiculo.suspended" [icon]="fontIcons.faSquareCheck" class="text-primary"></fa-icon>
+                    <fa-icon *ngIf="!vehiculo.suspended" [icon]="fontIcons.faSquare"></fa-icon>
+                </td>
+  
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/vehiculos', vehiculo.id]">Detail</a></td>
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/vehiculos', vehiculo.id,'edit']">Edit</a>
+                </td>
+                <td><a class="text-decoration-none text-info"
+                    [routerLink]="['/vehiculos', vehiculo.id,'delete']">Delete</a>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #alertEmpty>
+  <div class="alert alert-warning text-center" role="alert">
+    Empty
+  </div>
+</ng-template>

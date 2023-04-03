@@ -6,8 +6,9 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { EMPLOY_GENDER_ENUM } from './employ.enums';
 import { EMPLOY_VALIDATION_FORMS } from './employe.const/employ-validation-form.const';
-import { EployGenderEnum } from './employe.enum/employ-gender.enum';
+
 import { IEmployeUpdateDTO } from './employe.model';
 import { EmployService } from './employe.service';
 
@@ -17,7 +18,7 @@ import { EmployService } from './employe.service';
   styleUrls: ['./employe-edit.component.scss'],
 })
 export class EmployeEditComponent implements OnInit, OnDestroy {
-  genderOptions = [EployGenderEnum.female, EployGenderEnum.male];
+  genderOptions = [EMPLOY_GENDER_ENUM.female, EMPLOY_GENDER_ENUM.male];
   editEmploy!: FormGroup;
   title = 'Edit Employ';
   validationForms = EMPLOY_VALIDATION_FORMS;
