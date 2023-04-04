@@ -1,5 +1,7 @@
-import { IconDefinition, IconProp } from "@fortawesome/fontawesome-svg-core";
-import { EMPLOY_FONT_ICONS } from "./sidenav-icons.const";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { NAV_FONT_ICONS } from "./sidenav-icons.const";
+
+
 
 export interface INavLinkModel{
   title:string,
@@ -15,54 +17,54 @@ export interface INavLinkModel{
 export const NAV_LINKS: INavLinkModel[] = [
   {
     title: 'Home',
-    icon: EMPLOY_FONT_ICONS.faHome,
+    icon: NAV_FONT_ICONS.faHome,
     link: '/',
     isDropdow:false
   },
   {
     title: 'Product',
-    icon: EMPLOY_FONT_ICONS.faProduct,
-    link: '/products',
-    isDropdow:false
-  },
-  {
-    title: 'About',
-    icon: EMPLOY_FONT_ICONS.faAbout,
+    icon: NAV_FONT_ICONS.faProduct,
     link: '/',
     isDropdow:false
   },
   {
+    title: 'Prueva2s',
+    icon: NAV_FONT_ICONS.faAbout,
+    link: '/prueva2s',
+    isDropdow:false
+  },
+  {
     title: 'Employes',
-    icon: EMPLOY_FONT_ICONS.faEmpoy,
+    icon: NAV_FONT_ICONS.faEmpoy,
     link: '/employes',
     isDropdow:false
   },
   {
     title: 'Licenses',
-    icon: EMPLOY_FONT_ICONS.faEmpoy,
-    link: '/licenses',
+    icon: NAV_FONT_ICONS.faEmpoy,
+    link: '/',
     isDropdow:false
   },
   {
     title: 'Vehiculo',
-    icon: EMPLOY_FONT_ICONS.faEmpoy,
-    link: '/vehiculos',
+    icon: NAV_FONT_ICONS.faEmpoy,
+    link: '/',
     isDropdow:false
   }
   ,
   {
     title: 'Lazaro',
-    icon: EMPLOY_FONT_ICONS.faEmpoy,
-    link: '/lazaros',
+    icon: NAV_FONT_ICONS.faEmpoy,
+    link: '/',
     isDropdow:false
   },
   {
     title: 'Stadistc',
-    icon: EMPLOY_FONT_ICONS.faStadistc,
+    icon: NAV_FONT_ICONS.faStadistc,
     link: [
       {
         title: 'Enero',
-        icon: EMPLOY_FONT_ICONS.faEmpoy,
+        icon: NAV_FONT_ICONS.faEmpoy,
         link:'/',
         isDropdow:false
       }
@@ -71,7 +73,7 @@ export const NAV_LINKS: INavLinkModel[] = [
   },
   {
     title: 'Price',
-    icon: EMPLOY_FONT_ICONS.faPrice,
+    icon: NAV_FONT_ICONS.faPrice,
     link: '/',
     isDropdow:false
   },
