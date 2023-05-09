@@ -1,0 +1,59 @@
+
+<ng-container *ngIf="device$ | async as Device">
+  <div class="container-fluid">
+
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="row">
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Maker</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.maker}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Model</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.model}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Year</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.year}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">SerialNumber</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.serialNumber}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Service Status</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.serviceStatus}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Notes</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.serviceStatusNote}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">RegistrationPairingStartedOn</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.registrationPairingStartedOn}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">RegistrationPairingExpiration</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.registrationPairingExpiration}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">RegistrationId</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.registrationId}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">DeviceId </div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Device.deviceId}}</div>
+      </div>
+      <div class="mt-4 col-md-12">
+        <button routerLink='/devices' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button [routerLink]="['/devices', id, 'edit']" class="btn  btn-sm btn-primary "
+          style="width: 10%">Edit</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

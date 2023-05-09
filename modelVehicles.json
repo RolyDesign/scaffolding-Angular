@@ -1,0 +1,270 @@
+{
+  "Name": "Vehicle",
+  "PluralName": "Vehicles",
+  "Fields": [
+    {
+      "Name": "id",
+      "DisplayName": "Id",
+      "Type": "number"
+    },
+    {
+      "Name": "maker",
+      "DisplayName": "Maker",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required",
+        "maxLength"
+      ],
+      "ValueValidators": [
+        "none",
+        "30"
+      ]
+    },
+    {
+      "Name": "model",
+      "DisplayName": "Model",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required",
+        "maxLength"
+      ],
+      "ValueValidators": [
+        "none",
+        "30"
+      ]
+    },
+    {
+      "Name": "year",
+      "DisplayName": "Year",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      },
+      "Validators": [
+        "required",
+        "min",
+        "max"
+      ],
+      "ValueValidators": [
+        "none",
+        "2015",
+        "2025"
+      ]
+    },
+    {
+      "Name": "tag",
+      "DisplayName": "Tag",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "vin",
+      "DisplayName": "Vin",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "serviceStatus",
+      "DisplayName": "Service Status",
+      "Type": "customType",
+      "DisplayType": {
+        "Element": "select",
+        "OptionsSelected": [
+          "Active",
+          "OutOfServices",
+          "Decomissioned"
+        ]
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "serviceStatusNote",
+      "DisplayName": "Notes",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      }
+    },
+    {
+      "Name": "operationalStatus",
+      "DisplayName": "Operational Status",
+      "Type": "customType",
+      "DisplayType": {
+        "Element": "select",
+        "OptionsSelected": [
+          "OnService",
+          "Parked"
+        ]
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "capacity",
+      "DisplayName": "Capacity",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      },
+      "Validators": [
+        "required",
+        "max"
+      ],
+      "ValueValidators": [
+        "none",
+        "150"
+      ]
+    },
+    {
+      "Name": "alias",
+      "DisplayName": "Alias",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required",
+        "maxLength"
+      ],
+      "ValueValidators": [
+        "none",
+        "50"
+      ]
+    },
+    {
+      "Name": "color",
+      "DisplayName": "Color",
+      "Type": "customType",
+      "DisplayType": {
+        "Element": "select",
+        "OptionsSelected": [
+          "Black",
+          "Silver",
+          "Gray",
+          "Blue",
+          "Red",
+          "Yellow",
+          "Green",
+          "White"
+        ]
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "autonomy",
+      "DisplayName": "Autonomy",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      },
+      "Validators": [
+        "required",
+        "max"
+      ],
+      "ValueValidators": [
+        "none",
+        "30"
+      ]
+    },
+    {
+      "Name": "fuelCapacity",
+      "DisplayName": "Fuel Capacity",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "picture2",
+      "DisplayName": "Picture2",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "textFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeText"
+      ]
+    },
+    {
+      "Name": "picture",
+      "DisplayName": "Picture",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "imgFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeImg"
+      ]
+    }
+  ]
+}

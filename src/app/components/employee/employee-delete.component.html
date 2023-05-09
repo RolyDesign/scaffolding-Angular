@@ -1,0 +1,42 @@
+<ng-container *ngIf="employee$ | async as Employee ">
+ <div class="container-fluid ">
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+       <div class="row">
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Name</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Employee.name}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Last Name</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Employee.lastName}}</div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Avatar</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center" ><img width="80" [src]="Employee.avatar" alt=""></div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Thumbnail</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center" ><img width="80" [src]="Employee.thumbnail" alt=""></div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Contract</div>
+        <div  class="col-md-10 mb-3 d-flex align-items-center"><a *ngIf="Employee.contract" target="_blank" [href]="Employee.contract"><fa-icon class="fs-3" [icon]="fontIcons.faFile" ></fa-icon></a></div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">CV</div>
+        <div  class="col-md-10 mb-3 d-flex align-items-center"><a *ngIf="Employee.cv" target="_blank" [href]="Employee.cv"><fa-icon class="fs-3" [icon]="fontIcons.faFile" ></fa-icon></a></div>
+      </div>
+     
+      <div class="mt-4 col-md-12">
+        <button routerLink='/employees' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button class="btn btn-sm btn-danger" style="width: 10%" data-bs-toggle="modal" data-bs-target="#confirmModal">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- modalConfirm -->
+<scfld-confirm (action)="deleteEmployee()" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>
+
+

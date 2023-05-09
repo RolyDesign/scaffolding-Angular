@@ -1,0 +1,77 @@
+
+<ng-container *ngIf="vehicle$ | async as Vehicle">
+  <div class="container-fluid">
+
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="row">
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Maker</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.maker}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Model</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.model}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Year</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.year}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Tag</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.tag}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Vin</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.vin}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Service Status</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.serviceStatus}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Notes</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.serviceStatusNote}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Operational Status</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.operationalStatus}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Capacity</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.capacity}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Alias</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.alias}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Color</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.color}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Autonomy</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.autonomy}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Fuel Capacity</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{Vehicle.fuelCapacity}}</div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Picture2</div>
+        <div  class="col-md-10 mb-3 d-flex align-items-center"><a *ngIf="Vehicle.picture2" target="_blank" [href]="Vehicle.picture2"><fa-icon class="fs-3" [icon]="fontIcons.faFile" ></fa-icon></a></div>
+ 
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">Picture</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center" ><img width="80" [src]="Vehicle.picture" alt=""></div>
+      </div>
+      <div class="mt-4 col-md-12">
+        <button routerLink='/vehicles' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button [routerLink]="['/vehicles', id, 'edit']" class="btn  btn-sm btn-primary "
+          style="width: 10%">Edit</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

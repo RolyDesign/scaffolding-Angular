@@ -1,0 +1,176 @@
+<div class="container-fluid">
+  <div class=" mb-4  p-0 d-flex justify-content-between  ">
+    <div class="pt-4">
+      <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-9">
+      <form [formGroup]="addDevice" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
+        <div class="row">
+          <div class="col-md-4">
+            <!------------------------ inputs maker --------------------------->
+            <div>
+              <label for="maker" class=" form-label">Maker</label>
+              <div>
+                <input id="maker" formControlName="maker" class="form-control form-control-sm" type="text"
+                  placeholder="Maker"                  
+                  [ngClass]="{'is-invalid': (fm['maker'].touched || fm['maker'].dirty) && !fm['maker'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['maker'].touched || fm['maker'].dirty) && !fm['maker'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['maker']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs model --------------------------->
+            <div>
+              <label for="model" class=" form-label">Model</label>
+              <div>
+                <input id="model" formControlName="model" class="form-control form-control-sm" type="text"
+                  placeholder="Model"                  
+                  [ngClass]="{'is-invalid': (fm['model'].touched || fm['model'].dirty) && !fm['model'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['model'].touched || fm['model'].dirty) && !fm['model'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['model']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs year --------------------------->
+            <div>
+              <label for="year" class=" form-label">Year</label>
+              <div>
+                <input id="year" formControlName="year" class="form-control form-control-sm" type="number"
+                  placeholder="Year"                  
+                  [ngClass]="{'is-invalid': (fm['year'].touched || fm['year'].dirty) && !fm['year'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['year'].touched || fm['year'].dirty) && !fm['year'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['year']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['year']?.hasError('min')">
+                    {{validationForms.min}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['year']?.hasError('max')">
+                    {{validationForms.max}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs serialNumber --------------------------->
+            <div>
+              <label for="serialNumber" class=" form-label">SerialNumber</label>
+              <div>
+                <input id="serialNumber" formControlName="serialNumber" class="form-control form-control-sm" type="text"
+                  placeholder="SerialNumber"                  
+                  [ngClass]="{'is-invalid': (fm['serialNumber'].touched || fm['serialNumber'].dirty) && !fm['serialNumber'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['serialNumber'].touched || fm['serialNumber'].dirty) && !fm['serialNumber'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['serialNumber']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!------------------------ inputs serviceStatus --------------------------->
+            <div>
+              <label for="serviceStatus" class="form-label">Service Status</label>
+              <select class="form-select form-select-sm" aria-label="Default select example"
+                formControlName="serviceStatus"
+                [ngClass]="{'is-invalid': (fm['serviceStatus'].touched || fm['serviceStatus'].dirty) && !fm['serviceStatus'].valid }">
+                <option disabled selected value="">Select Service Status</option>
+                <option *ngFor="let opt of serviceStatusOptions" [value]="opt">{{opt}}</option>
+              </select>
+              <div class="spacer"
+                [ngClass]="{'d-none': (fm['serviceStatus'].touched || fm['serviceStatus'].dirty) && !fm['serviceStatus'].valid }">
+              </div>
+              <span class="invalid-feedback">
+                <em class="d-block" *ngIf="fm['serviceStatus']?.hasError('required')">
+                  {{validationForms.required}}
+                </em>
+              </span>
+            </div>
+            <!------------------------ inputs serviceStatusNote --------------------------->
+            <div>
+              <label for="serviceStatusNote" class=" form-label">Notes</label>
+              <div>
+                <input id="serviceStatusNote" formControlName="serviceStatusNote" class="form-control form-control-sm" type="text"
+                  placeholder="Notes">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['serviceStatusNote'].touched || fm['serviceStatusNote'].dirty) && !fm['serviceStatusNote'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs registrationPairingStartedOn --------------------------->
+            <div>
+              <label for="registrationPairingStartedOn" class=" form-label">RegistrationPairingStartedOn</label>
+              <div>
+                <input id="registrationPairingStartedOn" formControlName="registrationPairingStartedOn" class="form-control form-control-sm" type="text"
+                  placeholder="RegistrationPairingStartedOn">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['registrationPairingStartedOn'].touched || fm['registrationPairingStartedOn'].dirty) && !fm['registrationPairingStartedOn'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs registrationPairingExpiration --------------------------->
+            <div>
+              <label for="registrationPairingExpiration" class=" form-label">RegistrationPairingExpiration</label>
+              <div>
+                <input id="registrationPairingExpiration" formControlName="registrationPairingExpiration" class="form-control form-control-sm" type="text"
+                  placeholder="RegistrationPairingExpiration">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['registrationPairingExpiration'].touched || fm['registrationPairingExpiration'].dirty) && !fm['registrationPairingExpiration'].valid }">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!------------------------ inputs registrationId --------------------------->
+            <div>
+              <label for="registrationId" class=" form-label">RegistrationId</label>
+              <div>
+                <input id="registrationId" formControlName="registrationId" class="form-control form-control-sm" type="number"
+                  placeholder="RegistrationId">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['registrationId'].touched || fm['registrationId'].dirty) && !fm['registrationId'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs deviceId --------------------------->
+            <div>
+              <label for="deviceId" class=" form-label">DeviceId </label>
+              <div>
+                <input id="deviceId" formControlName="deviceId" class="form-control form-control-sm" type="number"
+                  placeholder="DeviceId ">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['deviceId'].touched || fm['deviceId'].dirty) && !fm['deviceId'].valid }">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!------------------------ Buttons controls --------------------------->
+         
+          <div class="mt-4 col-md-4">
+            <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+              routerLink='/devices'>Cancel</button>
+            <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+              [disabled]="!addDevice.valid">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

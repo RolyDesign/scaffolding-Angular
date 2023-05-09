@@ -1,0 +1,198 @@
+<div class="container-fluid">
+  <div class=" mb-4  p-0 d-flex justify-content-between  ">
+    <div class="pt-4">
+      <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-6">
+      <form [formGroup]="editEmployee" (ngSubmit)="edit()" class="form-group" novalidate autocomplete="off">
+        <div class="row">
+          <div class="col-md-6">
+            <!------------------------ inputs name --------------------------->
+            <div>
+              <label for="name" class=" form-label">Name</label>
+              <div>
+                <input id="name" formControlName="name" class="form-control form-control-sm" type="text"
+                  placeholder="Name"                  
+                  [ngClass]="{'is-invalid': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['name'].touched || fm['name'].dirty) && !fm['name'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['name']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['name']?.hasError('maxlength')">
+                    {{validationForms.maxlength}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs lastName --------------------------->
+            <div>
+              <label for="lastName" class=" form-label">Last Name</label>
+              <div>
+                <input id="lastName" formControlName="lastName" class="form-control form-control-sm" type="text"
+                  placeholder="Last Name"                  
+                  [ngClass]="{'is-invalid': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['lastName'].touched || fm['lastName'].dirty) && !fm['lastName'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['lastName']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['lastName']?.hasError('maxlength')">
+                    {{validationForms.maxlength}}
+                  </em>
+                </span>
+              </div>
+            </div>
+       <!------------------------ inputs Avatar --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">Avatar</label>
+                    <div>
+                      <input id="avatar" class="form-control form-control-sm d-none" type="file" placeholder="Avatar"
+                         (change)="catchFile($event,'avatar')" accept="image/png,image/jpg,image/jpeg,">
+                    </div>
+                </div>
+                <div (click)="onRemoveFile('avatar')" class="prev-file-img-container border"
+                    [ngClass]="{'hover-prev-file-img-container': fm['avatar'].value !== null, 'border-danger': !fm['avatar'].valid} ">
+                    <div *ngIf="fm['avatar']?.value == null"><fa-icon [icon]="fontIcons.faCamera"></fa-icon> </div>
+                    <img width="100" *ngIf="fm['avatar']?.value !== null && loading != 'avatar'" [src]="preview.avatar">
+                    <div *ngIf="loading == 'avatar'" class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <label style="width: calc(((1.5em + 0.5rem) * 3) + 1.5rem );" for="avatar" 
+                  class=" text-info text text-center mt-2" role="button">upload</label>
+                <div class="spacer" [ngClass]="{'d-none': !fm['avatar'].valid }"></div>
+                  <span *ngIf="!fm['avatar'].valid">
+                   <em *ngIf="fm['avatar']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['avatar']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+       <!------------------------ inputs Thumbnail --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">Thumbnail</label>
+                    <div>
+                      <input id="thumbnail" class="form-control form-control-sm d-none" type="file" placeholder="Thumbnail"
+                         (change)="catchFile($event,'thumbnail')" accept="image/png,image/jpg,image/jpeg,">
+                    </div>
+                </div>
+                <div (click)="onRemoveFile('thumbnail')" class="prev-file-img-container border"
+                    [ngClass]="{'hover-prev-file-img-container': fm['thumbnail'].value !== null, 'border-danger': !fm['thumbnail'].valid} ">
+                    <div *ngIf="fm['thumbnail']?.value == null"><fa-icon [icon]="fontIcons.faCamera"></fa-icon> </div>
+                    <img width="100" *ngIf="fm['thumbnail']?.value !== null && loading != 'thumbnail'" [src]="preview.thumbnail">
+                    <div *ngIf="loading == 'thumbnail'" class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <label style="width: calc(((1.5em + 0.5rem) * 3) + 1.5rem );" for="thumbnail" 
+                  class=" text-info text text-center mt-2" role="button">upload</label>
+                <div class="spacer" [ngClass]="{'d-none': !fm['thumbnail'].valid }"></div>
+                  <span *ngIf="!fm['thumbnail'].valid">
+                   <em *ngIf="fm['thumbnail']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['thumbnail']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+       <!------------------------ inputs Contract --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">Contract</label>
+                    <div>
+                      <input id="contract" class="form-control form-control-sm d-none" type="file" placeholder="Contract"
+                         (change)="catchFile($event,'contract')" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/plain,">
+                    </div>
+                </div>
+               <div class="input-group mb-1">
+                <input readonly type="text" class="form-control form-control-sm" aria-describedby="button" [value]="preview.contract">
+                <label for="contract" *ngIf="fm['contract']?.value == null" class="btn btn-sm btn-outline-secondary" type="button"
+                  id="button"><fa-icon [icon]="fontIcons.faPaperClip"></fa-icon></label>
+                <button (click)="onRemoveFile('contract')" *ngIf="fm['contract']?.value !== null && loading != 'contract'"
+                  class="btn btn-sm btn-outline-secondary" type="button" id="button"><fa-icon
+                    [icon]="fontIcons.faCircleXmark"></fa-icon></button>
+                <button *ngIf="loading == 'contract'" class="btn btn-sm btn-outline-secondary" type="button" id="button">
+                  <div style="width: 1rem; height: 1rem;" *ngIf="loading == 'contract'" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </button>
+              </div>
+                <div class="spacer" [ngClass]="{'d-none': !fm['contract'].valid }"></div>
+                  <span *ngIf="!fm['contract'].valid">
+                   <em *ngIf="fm['contract']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['contract']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+       <!------------------------ inputs CV --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">CV</label>
+                    <div>
+                      <input id="cv" class="form-control form-control-sm d-none" type="file" placeholder="CV"
+                         (change)="catchFile($event,'cv')" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/plain,">
+                    </div>
+                </div>
+               <div class="input-group mb-1">
+                <input readonly type="text" class="form-control form-control-sm" aria-describedby="button" [value]="preview.cv">
+                <label for="cv" *ngIf="fm['cv']?.value == null" class="btn btn-sm btn-outline-secondary" type="button"
+                  id="button"><fa-icon [icon]="fontIcons.faPaperClip"></fa-icon></label>
+                <button (click)="onRemoveFile('cv')" *ngIf="fm['cv']?.value !== null && loading != 'cv'"
+                  class="btn btn-sm btn-outline-secondary" type="button" id="button"><fa-icon
+                    [icon]="fontIcons.faCircleXmark"></fa-icon></button>
+                <button *ngIf="loading == 'cv'" class="btn btn-sm btn-outline-secondary" type="button" id="button">
+                  <div style="width: 1rem; height: 1rem;" *ngIf="loading == 'cv'" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </button>
+              </div>
+                <div class="spacer" [ngClass]="{'d-none': !fm['cv'].valid }"></div>
+                  <span *ngIf="!fm['cv'].valid">
+                   <em *ngIf="fm['cv']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['cv']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+          </div>
+          <!------------------------ Buttons controls --------------------------->
+         
+          <div class="mt-4 col-md-6">
+            <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+              routerLink='/employees'>Cancel</button>
+            <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+              [disabled]="!editEmployee.valid || loading ">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

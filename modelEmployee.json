@@ -1,0 +1,125 @@
+{
+  "Name": "Employee",
+  "PluralName": "Employees",
+  "Fields": [
+    {
+      "Name": "id",
+      "DisplayName": "Id",
+      "Type": "number",
+    },
+    {
+      "Name": "name",
+      "DisplayName": "Name",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required",
+        "maxLength"
+      ],
+      "ValueValidators": [
+        "none",
+        "30"
+      ]
+    },
+    {
+      "Name": "lastName",
+      "DisplayName": "Last Name",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required",
+        "maxLength"
+      ],
+      "ValueValidators": [
+        "none",
+        "30"
+      ]
+    },
+    {
+      "Name": "avatar",
+      "DisplayName": "Avatar",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "imgFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeImg"
+      ]
+    },
+    {
+      "Name": "thumbnail",
+      "DisplayName": "Thumbnail",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "imgFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeImg"
+      ]
+    },
+    {
+      "Name": "contract",
+      "DisplayName": "Contract",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "textFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeText"
+      ]
+    },
+    {
+      "Name": "cv",
+      "DisplayName": "CV",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "file",
+        "FileOptions": {
+          "TypeFile": "textFile"
+        }
+      },
+      "Validators": [
+        "maxSizeFile",
+        "typeFile"
+      ],
+      "ValueValidators": [
+        "10",
+        "mimeText"
+      ]
+    }
+  ]
+}

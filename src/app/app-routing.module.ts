@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 
-import { EMPLOY_ROUTES } from './components/employ/employe.const/employ-routes.const';
-import { PRUEVA2_ROUTES } from './components/prueva2/prueva2.const/prueva2-routes.const';
 
+
+ //When standalone or simple
+import { VEHICLE_ROUTES } from './components/vehicle/vehicle.const/vehicle-routes.const';
+import { LICENSE_ROUTES } from './components/license/license.const/license-routes.const';
+
+ //import { DEVICE_ROUTES } from './components/device/device.const/device-routes.const';
 
 const routes: Routes = [
   {
@@ -12,12 +16,45 @@ const routes: Routes = [
     redirectTo:'/home',
     pathMatch: 'full'
   },
-  ...EMPLOY_ROUTES,
-  ...PRUEVA2_ROUTES,
+  // ...EMPLOY_ROUTES,
+
   {
     path:"home",
     component:HomeComponent
   },
+
+  //When standalone or simple
+...VEHICLE_ROUTES,
+...LICENSE_ROUTES,
+  //...DEVICE_ROUTES,
+// When module
+  // {
+  //   path:"vehicles",
+  //   loadChildren:() =>
+  //    import("./components/vehicle/vehicle.module")
+  //    .then(m => m.VehicleModule)
+  // },
+
+  //   {
+  //   path:"licenses",
+  //   loadChildren:() =>
+  //    import("./components/license/license.module")
+  //    .then(m => m.LicenseModule)
+  // },
+  {
+    path:"devices",
+    loadChildren:() =>
+     import("./components/device/device.module")
+     .then(m => m.DeviceModule)
+  },
+
+  {
+    path:"employees",
+    loadChildren:() =>
+     import("./components/employee/employee.module")
+     .then(m => m.EmployeeModule)
+  },
+
 
 ];
 

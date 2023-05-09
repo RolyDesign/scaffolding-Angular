@@ -1,0 +1,335 @@
+<div class="container-fluid">
+  <div class=" mb-4  p-0 d-flex justify-content-between  ">
+    <div class="pt-4">
+      <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-12">
+      <form [formGroup]="addVehicle" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
+        <div class="row">
+          <div class="col-md-3">
+            <!------------------------ inputs maker --------------------------->
+            <div>
+              <label for="maker" class=" form-label">Maker</label>
+              <div>
+                <input id="maker" formControlName="maker" class="form-control form-control-sm" type="text"
+                  placeholder="Maker"                  
+                  [ngClass]="{'is-invalid': (fm['maker'].touched || fm['maker'].dirty) && !fm['maker'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['maker'].touched || fm['maker'].dirty) && !fm['maker'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['maker']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['maker']?.hasError('maxlength')">
+                    {{validationForms.maxlength}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs model --------------------------->
+            <div>
+              <label for="model" class=" form-label">Model</label>
+              <div>
+                <input id="model" formControlName="model" class="form-control form-control-sm" type="text"
+                  placeholder="Model"                  
+                  [ngClass]="{'is-invalid': (fm['model'].touched || fm['model'].dirty) && !fm['model'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['model'].touched || fm['model'].dirty) && !fm['model'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['model']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['model']?.hasError('maxlength')">
+                    {{validationForms.maxlength}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs year --------------------------->
+            <div>
+              <label for="year" class=" form-label">Year</label>
+              <div>
+                <input id="year" formControlName="year" class="form-control form-control-sm" type="number"
+                  placeholder="Year"                  
+                  [ngClass]="{'is-invalid': (fm['year'].touched || fm['year'].dirty) && !fm['year'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['year'].touched || fm['year'].dirty) && !fm['year'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['year']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['year']?.hasError('min')">
+                    {{validationForms.min}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['year']?.hasError('max')">
+                    {{validationForms.max}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs tag --------------------------->
+            <div>
+              <label for="tag" class=" form-label">Tag</label>
+              <div>
+                <input id="tag" formControlName="tag" class="form-control form-control-sm" type="text"
+                  placeholder="Tag"                  
+                  [ngClass]="{'is-invalid': (fm['tag'].touched || fm['tag'].dirty) && !fm['tag'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['tag'].touched || fm['tag'].dirty) && !fm['tag'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['tag']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!------------------------ inputs vin --------------------------->
+            <div>
+              <label for="vin" class=" form-label">Vin</label>
+              <div>
+                <input id="vin" formControlName="vin" class="form-control form-control-sm" type="text"
+                  placeholder="Vin"                  
+                  [ngClass]="{'is-invalid': (fm['vin'].touched || fm['vin'].dirty) && !fm['vin'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['vin'].touched || fm['vin'].dirty) && !fm['vin'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['vin']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs serviceStatus --------------------------->
+            <div>
+              <label for="serviceStatus" class="form-label">Service Status</label>
+              <select class="form-select form-select-sm" aria-label="Default select example"
+                formControlName="serviceStatus"
+                [ngClass]="{'is-invalid': (fm['serviceStatus'].touched || fm['serviceStatus'].dirty) && !fm['serviceStatus'].valid }">
+                <option disabled selected value="">Select Service Status</option>
+                <option *ngFor="let opt of serviceStatusOptions" [value]="opt">{{opt}}</option>
+              </select>
+              <div class="spacer"
+                [ngClass]="{'d-none': (fm['serviceStatus'].touched || fm['serviceStatus'].dirty) && !fm['serviceStatus'].valid }">
+              </div>
+              <span class="invalid-feedback">
+                <em class="d-block" *ngIf="fm['serviceStatus']?.hasError('required')">
+                  {{validationForms.required}}
+                </em>
+              </span>
+            </div>
+            <!------------------------ inputs serviceStatusNote --------------------------->
+            <div>
+              <label for="serviceStatusNote" class=" form-label">Notes</label>
+              <div>
+                <input id="serviceStatusNote" formControlName="serviceStatusNote" class="form-control form-control-sm" type="text"
+                  placeholder="Notes">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['serviceStatusNote'].touched || fm['serviceStatusNote'].dirty) && !fm['serviceStatusNote'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs operationalStatus --------------------------->
+            <div>
+              <label for="operationalStatus" class="form-label">Operational Status</label>
+              <select class="form-select form-select-sm" aria-label="Default select example"
+                formControlName="operationalStatus"
+                [ngClass]="{'is-invalid': (fm['operationalStatus'].touched || fm['operationalStatus'].dirty) && !fm['operationalStatus'].valid }">
+                <option disabled selected value="">Select Operational Status</option>
+                <option *ngFor="let opt of operationalStatusOptions" [value]="opt">{{opt}}</option>
+              </select>
+              <div class="spacer"
+                [ngClass]="{'d-none': (fm['operationalStatus'].touched || fm['operationalStatus'].dirty) && !fm['operationalStatus'].valid }">
+              </div>
+              <span class="invalid-feedback">
+                <em class="d-block" *ngIf="fm['operationalStatus']?.hasError('required')">
+                  {{validationForms.required}}
+                </em>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!------------------------ inputs capacity --------------------------->
+            <div>
+              <label for="capacity" class=" form-label">Capacity</label>
+              <div>
+                <input id="capacity" formControlName="capacity" class="form-control form-control-sm" type="number"
+                  placeholder="Capacity"                  
+                  [ngClass]="{'is-invalid': (fm['capacity'].touched || fm['capacity'].dirty) && !fm['capacity'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['capacity'].touched || fm['capacity'].dirty) && !fm['capacity'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['capacity']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['capacity']?.hasError('max')">
+                    {{validationForms.max}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs alias --------------------------->
+            <div>
+              <label for="alias" class=" form-label">Alias</label>
+              <div>
+                <input id="alias" formControlName="alias" class="form-control form-control-sm" type="text"
+                  placeholder="Alias"                  
+                  [ngClass]="{'is-invalid': (fm['alias'].touched || fm['alias'].dirty) && !fm['alias'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['alias'].touched || fm['alias'].dirty) && !fm['alias'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['alias']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['alias']?.hasError('maxlength')">
+                    {{validationForms.maxlength}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs color --------------------------->
+            <div>
+              <label for="color" class="form-label">Color</label>
+              <select class="form-select form-select-sm" aria-label="Default select example"
+                formControlName="color"
+                [ngClass]="{'is-invalid': (fm['color'].touched || fm['color'].dirty) && !fm['color'].valid }">
+                <option disabled selected value="">Select Color</option>
+                <option *ngFor="let opt of colorOptions" [value]="opt">{{opt}}</option>
+              </select>
+              <div class="spacer"
+                [ngClass]="{'d-none': (fm['color'].touched || fm['color'].dirty) && !fm['color'].valid }">
+              </div>
+              <span class="invalid-feedback">
+                <em class="d-block" *ngIf="fm['color']?.hasError('required')">
+                  {{validationForms.required}}
+                </em>
+              </span>
+            </div>
+            <!------------------------ inputs autonomy --------------------------->
+            <div>
+              <label for="autonomy" class=" form-label">Autonomy</label>
+              <div>
+                <input id="autonomy" formControlName="autonomy" class="form-control form-control-sm" type="number"
+                  placeholder="Autonomy"                  
+                  [ngClass]="{'is-invalid': (fm['autonomy'].touched || fm['autonomy'].dirty) && !fm['autonomy'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['autonomy'].touched || fm['autonomy'].dirty) && !fm['autonomy'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['autonomy']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['autonomy']?.hasError('max')">
+                    {{validationForms.max}}
+                  </em>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!------------------------ inputs fuelCapacity --------------------------->
+            <div>
+              <label for="fuelCapacity" class=" form-label">Fuel Capacity</label>
+              <div>
+                <input id="fuelCapacity" formControlName="fuelCapacity" class="form-control form-control-sm" type="number"
+                  placeholder="Fuel Capacity"                  
+                  [ngClass]="{'is-invalid': (fm['fuelCapacity'].touched || fm['fuelCapacity'].dirty) && !fm['fuelCapacity'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['fuelCapacity'].touched || fm['fuelCapacity'].dirty) && !fm['fuelCapacity'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['fuelCapacity']?.hasError('required')">
+                    {{validationForms.required}}
+                  </em>
+                </span>
+              </div>
+            </div>
+       <!------------------------ inputs Picture2 --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">Picture2</label>
+                    <div>
+                      <input id="picture2" class="form-control form-control-sm d-none" type="file" placeholder="Picture2"
+                         (change)="catchFile($event,'picture2')" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/plain,">
+                    </div>
+                </div>
+               <div class="input-group mb-1">
+                <input readonly type="text" class="form-control form-control-sm" aria-describedby="button" [value]="preview.picture2">
+                <label for="picture2" *ngIf="fm['picture2']?.value == null" class="btn btn-sm btn-outline-secondary" type="button"
+                  id="button"><fa-icon [icon]="fontIcons.faPaperClip"></fa-icon></label>
+                <button (click)="onRemoveFile('picture2')" *ngIf="fm['picture2']?.value !== null && loading != 'picture2'"
+                  class="btn btn-sm btn-outline-secondary" type="button" id="button"><fa-icon
+                    [icon]="fontIcons.faCircleXmark"></fa-icon></button>
+                <button *ngIf="loading == 'picture2'" class="btn btn-sm btn-outline-secondary" type="button" id="button">
+                  <div style="width: 1rem; height: 1rem;" *ngIf="loading == 'picture2'" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </button>
+              </div>
+                <div class="spacer" [ngClass]="{'d-none': !fm['picture2'].valid }"></div>
+                  <span *ngIf="!fm['picture2'].valid">
+                   <em *ngIf="fm['picture2']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['picture2']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+       <!------------------------ inputs Picture --------------------------->
+             <div>
+                <div>
+                    <label  class=" form-label">Picture</label>
+                    <div>
+                      <input id="picture" class="form-control form-control-sm d-none" type="file" placeholder="Picture"
+                         (change)="catchFile($event,'picture')" accept="image/png,image/jpg,image/jpeg,">
+                    </div>
+                </div>
+                <div (click)="onRemoveFile('picture')" class="prev-file-img-container border"
+                    [ngClass]="{'hover-prev-file-img-container': fm['picture'].value !== null, 'border-danger': !fm['picture'].valid} ">
+                    <div *ngIf="fm['picture']?.value == null"><fa-icon [icon]="fontIcons.faCamera"></fa-icon> </div>
+                   <img width="100" *ngIf="fm['picture']?.value !== null && loading != 'picture'" [src]="preview.picture">
+                    <div *ngIf="loading == 'picture'" class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <label style="width: calc(((1.5em + 0.5rem) * 3) + 1.5rem );" for="picture" 
+                  class=" text-info text text-center mt-2" role="button">upload</label>
+                <div class="spacer" [ngClass]="{'d-none': !fm['picture'].valid }"></div>
+                  <span *ngIf="!fm['picture'].valid">
+                   <em *ngIf="fm['picture']?.hasError('maxsizefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.maxsizefile}}
+                   </em>
+                   <em *ngIf="fm['picture']?.hasError('typefile')" class="d-block text-danger"
+                      style="color:#b02a37; font-size: 0.875rem;">
+                      {{validationForms.typefile}}
+                   </em>
+               </span>
+            </div>
+          </div>
+          <!------------------------ Buttons controls --------------------------->
+         
+          <div class="mt-4 col-md-3">
+            <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+              routerLink='/vehicles'>Cancel</button>
+            <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+              [disabled]="!addVehicle.valid|| loading ">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

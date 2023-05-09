@@ -1,0 +1,79 @@
+{
+  "Name": "License",
+  "PluralName": "Licenses",
+  "Fields": [
+    {
+      "Name": "id",
+      "DisplayName": "Id",
+      "Type": "string"
+    },
+    {
+      "Name": "createdOn",
+      "DisplayName": "CreatedOn",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType":"date"
+      }
+    },
+    {
+      "Name": "activationDate",
+      "DisplayName": "ActivationDate",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType":"date"
+
+      },
+      "Validators": ["minDate"],
+      "ValueValidators": ["today"]
+    },
+    {
+      "Name": "canceledOn",
+      "DisplayName": "CanceledOn",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "date"
+      }
+    },
+    {
+      "Name": "deactivationDate",
+      "DisplayName": "DeactivationDate",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "date"
+      },
+      "Validators": ["minDate","maxDate"],
+      "ValueValidators": ["tomorrow", "new Date(new Date(Date.now()).getFullYear()+5,1,1)"]
+    },
+    {
+      "Name": "from",
+      "DisplayName": "From",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "date"
+      }
+    },
+    {
+      "Name": "to",
+      "DisplayName": "To ",
+      "Type": "date",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "date"
+      }
+    },
+    {
+      "Name": "deviceId",
+      "DisplayName": "DeviceId",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      }
+    }
+  ]
+}

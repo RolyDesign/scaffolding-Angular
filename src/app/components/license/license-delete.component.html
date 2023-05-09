@@ -1,0 +1,50 @@
+<ng-container *ngIf="license$ | async as License ">
+ <div class="container-fluid ">
+    <div class="py-4">
+      <div class=" mb-4 d-flex justify-content-between  ">
+        <h2 class="fs-3 p-0 m-0">{{title}} </h2>
+      </div>
+      <!-- *********************Content***************-->
+       <div class="row">
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">CreatedOn</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.createdOn}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">ActivationDate</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.activationDate}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">CanceledOn</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.canceledOn}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">DeactivationDate</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.deactivationDate}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">From</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.from}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">To </div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.to}}</div>
+ 
+         
+        <div class="col-md-2 fw-bold mb-3 d-flex align-items-center">DeviceId</div>
+        <div class="col-md-10 mb-3 d-flex align-items-center">{{License.deviceId}}</div>
+      </div>
+     
+      <div class="mt-4 col-md-12">
+        <button routerLink='/licenses' class="btn btn-sm btn-secondary me-5 " style="width: 10%">Cancel</button>
+        <button class="btn btn-sm btn-danger" style="width: 10%" data-bs-toggle="modal" data-bs-target="#confirmModal">Delete</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- modalConfirm -->
+<scfld-confirm (action)="deleteLicense()" [confirmMessage]="confirmMessage.delete" modalTitle="Alert!!!"></scfld-confirm>
+
+

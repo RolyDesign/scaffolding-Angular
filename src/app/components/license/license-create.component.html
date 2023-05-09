@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class=" mb-4  p-0 d-flex justify-content-between  ">
+    <div class="pt-4">
+      <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-6">
+      <form [formGroup]="addLicense" (ngSubmit)="add()" class="form-group" novalidate autocomplete="off">
+        <div class="row">
+          <div class="col-md-6">
+            <!------------------------ inputs createdOn --------------------------->
+            <div>
+              <label for="createdOn" class=" form-label">CreatedOn</label>
+              <div>
+                <input id="createdOn" formControlName="createdOn" class="form-control form-control-sm" type="date"
+                  placeholder="CreatedOn">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['createdOn'].touched || fm['createdOn'].dirty) && !fm['createdOn'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs activationDate --------------------------->
+            <div>
+              <label for="activationDate" class=" form-label">ActivationDate</label>
+              <div>
+                <input id="activationDate" formControlName="activationDate" class="form-control form-control-sm" type="date"
+                  placeholder="ActivationDate"
+                  [ngClass]="{'is-invalid': (fm['activationDate'].touched || fm['activationDate'].dirty) && !fm['activationDate'].valid}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['activationDate'].touched || fm['activationDate'].dirty) && !fm['activationDate'].valid }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['activationDate']?.hasError('mindate')">
+                    {{validationForms.mindate}}
+                  </em>
+                </span>
+              </div>
+            </div>
+            <!------------------------ inputs canceledOn --------------------------->
+            <div>
+              <label for="canceledOn" class=" form-label">CanceledOn</label>
+              <div>
+                <input id="canceledOn" formControlName="canceledOn" class="form-control form-control-sm" type="date"
+                  placeholder="CanceledOn">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['canceledOn'].touched || fm['canceledOn'].dirty) && !fm['canceledOn'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs deactivationDate --------------------------->
+            <div>
+              <label for="deactivationDate" class=" form-label">DeactivationDate</label>
+              <div>
+                <input id="deactivationDate" formControlName="deactivationDate" class="form-control form-control-sm" type="date"
+                  placeholder="DeactivationDate"
+                  [ngClass]="{'is-invalid': (addLicense.errors || (fm['deactivationDate'].touched || fm['deactivationDate'].dirty) && !fm['deactivationDate'].valid)}">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (addLicense.errors || (fm['deactivationDate'].touched || fm['deactivationDate'].dirty) && !fm['deactivationDate'].valid) }">
+                </div>
+                <span class="invalid-feedback">
+                  <em class="d-block" *ngIf="fm['deactivationDate']?.hasError('mindate')">
+                    {{validationForms.mindate}}
+                  </em>
+                  <em class="d-block" *ngIf="fm['deactivationDate']?.hasError('maxdate')">
+                    {{validationForms.maxdate}}
+                  </em>
+                  <em class="d-block" *ngIf="addLicense.hasError('actLessThanDeact')">
+                    Deact debe ser mayor que act
+                  </em>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!------------------------ inputs from --------------------------->
+            <div>
+              <label for="from" class=" form-label">From</label>
+              <div>
+                <input id="from" formControlName="from" class="form-control form-control-sm" type="date"
+                  placeholder="From">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['from'].touched || fm['from'].dirty) && !fm['from'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs to --------------------------->
+            <div>
+              <label for="to" class=" form-label">To </label>
+              <div>
+                <input id="to" formControlName="to" class="form-control form-control-sm" type="date"
+                  placeholder="To ">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['to'].touched || fm['to'].dirty) && !fm['to'].valid }">
+                </div>
+              </div>
+            </div>
+            <!------------------------ inputs deviceId --------------------------->
+            <div>
+              <label for="deviceId" class=" form-label">DeviceId</label>
+              <div>
+                <input id="deviceId" formControlName="deviceId" class="form-control form-control-sm" type="number"
+                  placeholder="DeviceId">
+                <div class="spacer"
+                  [ngClass]="{'d-none': (fm['deviceId'].touched || fm['deviceId'].dirty) && !fm['deviceId'].valid }">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!------------------------ Buttons controls --------------------------->
+
+          <div class="mt-4 col-md-6">
+            <button class="btn btn-secondary btn-sm" style="width: 45%;" type="button"
+              routerLink='/licenses'>Cancel</button>
+            <button class="btn btn-primary btn-sm float-end" style="width: 45%;" type="submit"
+              [disabled]="!addLicense.valid">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

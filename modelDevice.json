@@ -1,0 +1,146 @@
+{
+  "Name": "Device",
+  "PluralName": "Devices",
+  "Fields": [
+    {
+      "Name": "id",
+      "DisplayName": "Id",
+      "Type": "number",
+
+    },
+    {
+      "Name": "maker",
+      "DisplayName": "Maker",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "model",
+      "DisplayName": "Model",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "year",
+      "DisplayName": "Year",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+      },
+      "Validators": [
+        "required",
+        "min",
+        "max"
+      ],
+      "ValueValidators": [
+        "none",
+        "new Date().getFullYear() - 10",
+        "new Date().getFullYear() + 1"
+      ]
+    },
+    {
+      "Name": "serialNumber",
+      "DisplayName": "SerialNumber",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "serviceStatus",
+      "DisplayName": "Service Status",
+      "Type": "customType",
+      "DisplayType": {
+        "Element": "select",
+        "OptionsSelected": [
+          "active",
+          "out_of_service",
+          "decommissioned"
+        ]
+      },
+      "Validators": [
+        "required"
+      ],
+      "ValueValidators": [
+        "none"
+      ]
+    },
+    {
+      "Name": "serviceStatusNote",
+      "DisplayName": "Notes",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      }
+    },
+    {
+      "Name": "registrationPairingStartedOn",
+      "DisplayName": "RegistrationPairingStartedOn",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+      }
+    },
+    {
+      "Name": "registrationPairingExpiration",
+      "DisplayName": "RegistrationPairingExpiration",
+      "Type": "string",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "text"
+
+      }
+
+    },
+    {
+      "Name": "registrationId",
+      "DisplayName": "RegistrationId",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number"
+
+      }
+
+    },
+    {
+      "Name": "deviceId",
+      "DisplayName": "DeviceId ",
+      "Type": "number",
+      "DisplayType": {
+        "Element": "input",
+        "ElementType": "number",
+
+      }
+
+    }
+  ]
+}

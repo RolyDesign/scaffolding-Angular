@@ -3,24 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http';
-import { EmployeCreateComponent } from './components/employ/employe-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ConfirmComponent } from './shared/confirm/confirm.component';
-import { EmployeListComponent } from './components/employ/employe-list.component';
-import { EmployeEditComponent } from './components/employ/employe-edit.component';
-import { EmployeDetailComponent } from './components/employ/employe-detail.component';
-import { EmployeDeleteComponent } from './components/employ/employe-delete.component';
+
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
-import { Prueva2CreateComponent } from './components/prueva2/prueva2-create.component';
-import { Prueva2DeleteComponent } from './components/prueva2/prueva2-delete.component';
-import { Prueva2DetailComponent } from './components/prueva2/prueva2-detail.component';
-import { Prueva2EditComponent } from './components/prueva2/prueva2-edit.component';
-import { Prueva2ListComponent } from './components/prueva2/prueva2-list.component';
+import { ConfirmComponent } from './shared/components/confirm/confirm.component';
 
-
+// import { VehicleCreateComponent } from './components/vehicle/vehicle-create.component';
+// import { VehicleDeleteComponent } from './components/vehicle/vehicle-delete.component';
+// import { VehicleDetailComponent } from './components/vehicle/vehicle-detail.component';
+// import { VehicleEditComponent } from './components/vehicle/vehicle-edit.component';
+// import { VehicleListComponent } from './components/vehicle/vehicle-list.component';
 
 
 
@@ -28,16 +22,14 @@ import { Prueva2ListComponent } from './components/prueva2/prueva2-list.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    EmployeListComponent,
-    EmployeEditComponent,
-    EmployeDetailComponent,
-    EmployeDeleteComponent,
-    EmployeCreateComponent,
-    Prueva2CreateComponent,
-    Prueva2DeleteComponent,
-    Prueva2DetailComponent,
-    Prueva2EditComponent,
-    Prueva2ListComponent
+
+    // when simple components
+    // VehicleCreateComponent,
+    // VehicleDeleteComponent,
+    // VehicleDetailComponent,
+    // VehicleEditComponent,
+    // VehicleListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -46,11 +38,10 @@ import { Prueva2ListComponent } from './components/prueva2/prueva2-list.componen
     HttpClientModule,
     ReactiveFormsModule,
     ConfirmComponent,
-    SidenavComponent
-
-
+    SidenavComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//"http://tenant1.localhost:5000/api/"

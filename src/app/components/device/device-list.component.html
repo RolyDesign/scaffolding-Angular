@@ -1,0 +1,58 @@
+<ng-container *ngIf="listDevices$ | async as listDevices ">
+  <div class="container-fluid">
+    <div class="py-4">
+      <div class=" mb-4  p-0 d-flex justify-content-between  ">
+        <div>
+          <h2 class="fs-3 p-0 m-0 d-inline">{{title}} </h2>
+          <a class=" text-decoration-none fs-6 text-info " title="Add new Device" routerLink="/devices/add">New</a>
+        </div>
+      </div>
+      <!-- *********************Content***************-->
+      <div class="table-responsive" *ngIf="listDevices.length !== 0; else alertEmpty">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th *ngFor="let head of headsTable ">{{head | uppercase}}</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <ng-container *ngFor="let device of listDevices">
+              <tr>
+    <td>{{device.maker}}</td>           
+    <td>{{device.model}}</td>           
+    <td>{{device.year}}</td>           
+    <td>{{device.serialNumber}}</td>           
+    <td>{{device.serviceStatus}}</td>           
+    <td>{{device.serviceStatusNote}}</td>           
+    <td>{{device.registrationPairingStartedOn}}</td>           
+    <td>{{device.registrationPairingExpiration}}</td>           
+    <td>{{device.registrationId}}</td>           
+    <td>{{device.deviceId}}</td>           
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/devices', device.id]">Detail</a></td>
+                <td ><a class="text-decoration-none text-info"
+                    [routerLink]="['/devices', device.id,'edit']">Edit</a>
+                </td>
+                <td><a class="text-decoration-none text-info"
+                    [routerLink]="['/devices', device.id,'delete']">Delete</a>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #alertEmpty>
+  <div class="alert alert-warning text-center" role="alert">
+    Empty
+  </div>
+</ng-template>
+
+
+
+

@@ -22,59 +22,41 @@ export const NAV_LINKS: INavLinkModel[] = [
     isDropdow:false
   },
   {
-    title: 'Product',
+    title: 'Devices',
     icon: NAV_FONT_ICONS.faProduct,
-    link: '/',
+    link: '/devices',
     isDropdow:false
   },
   {
-    title: 'Prueva2s',
-    icon: NAV_FONT_ICONS.faAbout,
-    link: '/prueva2s',
-    isDropdow:false
-  },
-  {
-    title: 'Employes',
+    title: 'Employees',
     icon: NAV_FONT_ICONS.faEmpoy,
-    link: '/employes',
+    link: '/employees',
+    isDropdow:false
+  },
+  {
+    title: 'Vehicles',
+    icon: NAV_FONT_ICONS.faEmpoy,
+    link: '/vehicles',
     isDropdow:false
   },
   {
     title: 'Licenses',
     icon: NAV_FONT_ICONS.faEmpoy,
-    link: '/',
+    link: '/licenses',
     isDropdow:false
   },
-  {
-    title: 'Vehiculo',
-    icon: NAV_FONT_ICONS.faEmpoy,
-    link: '/',
-    isDropdow:false
-  }
-  ,
-  {
-    title: 'Lazaro',
-    icon: NAV_FONT_ICONS.faEmpoy,
-    link: '/',
-    isDropdow:false
-  },
-  {
-    title: 'Stadistc',
-    icon: NAV_FONT_ICONS.faStadistc,
-    link: [
-      {
-        title: 'Enero',
-        icon: NAV_FONT_ICONS.faEmpoy,
-        link:'/',
-        isDropdow:false
-      }
-    ],
-    isDropdow:true
-  },
-  {
-    title: 'Price',
-    icon: NAV_FONT_ICONS.faPrice,
-    link: '/',
-    isDropdow:false
-  },
+  // {
+  //   title: 'Stadistc',
+  //   icon: NAV_FONT_ICONS.faStadistc,
+  //   link: [
+  //     {
+  //       title: 'Enero',
+  //       icon: NAV_FONT_ICONS.faEmpoy,
+  //       link:'/',
+  //       isDropdow:false
+  //     }
+  //   ],
+  //   isDropdow:true
+  // },
+
 ]
